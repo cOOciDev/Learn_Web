@@ -1,0 +1,6 @@
+:root[data-accent="cyber"] {
+  --accent-1: #02e1ff;
+  --accent-2: #ff4df0;
+  --accent-soft: rgba(2, 225, 255, 0.16);
+  --accent-glow: 0 18px 40px rgba(2, 225, 255, 0.35);
+}

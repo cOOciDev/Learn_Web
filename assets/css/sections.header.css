@@ -1,0 +1,122 @@
+@layer sections {
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(145deg, rgba(96, 165, 250, 0.85), rgba(168, 85, 247, 0.85));
+    display: grid;
+    place-items: center;
+    box-shadow: var(--accent-glow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .brand-mark::after {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle at 30% 30%, rgba(34, 211, 238, 0.6), transparent 60%);
+    opacity: 0.6;
+    filter: blur(10px);
+  }
+
+  .brand-name {
+    font-size: var(--step-1);
+    font-weight: 700;
+    color: var(--ink-1);
+    letter-spacing: -0.01em;
+  }
+
+  .brand-pill {
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--ink-muted);
+  }
+
+  .main-nav {
+    display: none;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.55em 1.2em;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .nav-link:hover,
+  .nav-link:focus-visible {
+    color: var(--ink-1);
+    background: rgba(96, 126, 255, 0.16);
+    transform: translateY(-1px);
+  }
+
+  .header-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  #menuBtn span {
+    font-size: 1.4rem;
+    line-height: 1;
+    display: block;
+  }
+
+  #mobileMenu {
+    position: absolute;
+    inset-inline: 0;
+    top: calc(100% + 6px);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+    z-index: 90;
+  }
+
+  #mobileMenu:not(.hidden) {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #mobileMenu .mobile-nav {
+    padding: clamp(18px, 5vw, 26px);
+  }
+
+  #mobileMenu nav {
+    display: grid;
+    gap: 8px;
+  }
+
+  #mobileMenu nav a {
+    justify-content: flex-start;
+  }
+
+  @media (min-width: 960px) {
+    .main-nav {
+      display: inline-flex;
+    }
+
+    #menuBtn {
+      display: none;
+    }
+
+    #mobileMenu {
+      display: none !important;
+    }
+  }
+}

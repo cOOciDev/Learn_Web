@@ -1,0 +1,100 @@
+@layer sections {
+.hero {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: linear-gradient(140deg, rgba(15, 20, 48, 0.92), rgba(6, 9, 26, 0.95));
+    padding-block: clamp(48px, 12vw, 96px);
+  }
+
+  .hero.section-block::before {
+    display: none;
+  }
+
+  .hero::before,
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 25%, rgba(96, 165, 250, 0.25), transparent 65%), radial-gradient(circle at 75% 35%, rgba(168, 85, 247, 0.22), transparent 70%);
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .hero::after {
+    inset: -30%;
+    background: radial-gradient(circle at 50% 50%, rgba(34, 211, 238, 0.18), transparent 70%);
+    filter: blur(12px);
+    opacity: 0.45;
+  }
+
+  .hero-canvas {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-copy {
+    width: min(var(--content-max), 100%);
+    display: grid;
+    gap: clamp(18px, 4vw, 28px);
+  }
+
+  .hero-copy h1 {
+    color: var(--ink-1);
+  }
+
+  .hero-copy p {
+    max-width: var(--content-max);
+    color: var(--ink-2);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .hero-note {
+    font-size: var(--step--1);
+    color: var(--ink-muted);
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding-block: clamp(40px, 14vw, 72px);
+    }
+
+    .hero-copy {
+      text-align: center;
+      justify-items: center;
+    }
+
+    .hero-copy p,
+    .hero-note {
+      text-align: center;
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+  }
+}

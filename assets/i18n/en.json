@@ -1,0 +1,205 @@
+{
+  "meta": {
+    "title": "CoociDev Learn_Web | Modern Web Design Academy",
+    "description": "Learn_Web is CoociDev Academy's modern web design program with live mentorship, bilingual content, and career matching.",
+    "ogTitle": "CoociDev Learn_Web | Modern Web Design Academy",
+    "ogDesc": "Join CoociDev Academy's Learn_Web cohorts to master responsive, 3D, and production-ready web design with hiring support."
+  },
+  "header": {
+    "brand": "CoociDev Academy",
+    "tagline": "Learn_Web Program",
+    "overview": "Overview",
+    "work": "Results",
+    "syllabus": "Curriculum",
+    "courses": "Courses",
+    "jobs": "Job Market",
+    "testimonials": "Testimonials",
+    "contact": "Apply",
+    "langToggle": "FA / EN",
+    "langToggleLabel": "Toggle between Persian and English",
+    "themeToggleLabel": "Toggle color theme"
+  },
+  "hero": {
+    "pillCohort": "Live cohorts",
+    "pillPlacement": "Job-matching",
+    "pillHybrid": "Hybrid / Remote",
+    "title": "Launch a modern web design career with CoociDev Learn_Web in 12 weeks.",
+    "subtitle": "CoociDev Academy's Learn_Web program blends immersive web-design courses, live mentorship, and a hiring network to get you hired as a high-impact web designer.",
+    "ctaPrimary": "Browse Courses",
+    "ctaSecondary": "See job openings",
+    "note": "Powered by CoociDev mentors and trusted by startups building bilingual, RTL-ready experiences."
+  },
+  "logos": {
+    "eyebrow": "Hiring partners",
+    "copy": "Learn_Web graduates from CoociDev Academy ship UI systems for regional startups, SaaS teams, and global agencies."
+  },
+  "work": {
+    "eyebrow": "Outcomes",
+    "title": "Craft, test, and ship production-grade experiences.",
+    "subtitle": "Every Learn_Web cohort delivers live projects with measurable results and cross-functional collaboration.",
+    "cards": [
+      {
+        "title": "Responsive Design Systems",
+        "body": "Ship design tokens, UI kits, and multi-brand components that render flawlessly across languages.",
+        "points": [
+          "Fluid typography and RTL-ready grids",
+          "Design-to-code handoff with live Storybook",
+          "Performance budgets and accessibility"
+        ]
+      },
+      {
+        "title": "Conversion-first Landing Pages",
+        "body": "Pair UX research with animation systems to boost signups and in-product activation.",
+        "points": [
+          "UX audits and microcopy testing",
+          "3D hero and motion guidelines",
+          "Analytics setup with clear KPIs"
+        ]
+      },
+      {
+        "title": "Real-world Collaboration",
+        "body": "Practice dev handoff, async rituals, and stakeholder presentations that mirror modern teams.",
+        "points": [
+          "Weekly critiques with design leads",
+          "Paired implementation with engineers",
+          "Hiring day with portfolio challenge"
+        ]
+      }
+    ]
+  },
+  "syllabus": {
+    "eyebrow": "Curriculum map",
+    "title": "Six modules blended across design, code, and strategy.",
+    "subtitle": "CoociDev Learn_Web is built for designers moving into hybrid UI/front-end roles.",
+    "items": [
+      "Foundations: research, UX flows, accessibility, HTML/CSS baseline.",
+      "Systems thinking: tokens, grids, responsive typography, component APIs.",
+      "Modern front-end: semantic HTML, CSS architecture, Three.js integration.",
+      "Motion & 3D: micro-interactions, reduced motion patterns, performance.",
+      "Shipping & SEO: audits, Lighthouse, content ops, multi-lingual support.",
+      "Career studio: portfolio review, interview loops, offer negotiation."
+    ]
+  },
+  "courses": {
+    "eyebrow": "Courses",
+    "title": "Pick the web-design sprint that fits your goals.",
+    "subtitle": "Each Learn_Web cohort runs live with CoociDev mentors, English/فارسی materials, and project-based feedback.",
+    "note": "Tap “Enroll” to populate the application form below. Seats unlock weekly.",
+    "outcomesLabel": "Outcomes",
+    "cta": "Enroll",
+    "ctaAria": "Enroll — {course}",
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    }
+  },
+  "jobs": {
+    "eyebrow": "Job market",
+    "title": "Roles hiring right now through CoociDev Learn_Web.",
+    "subtitle": "Filter opportunities by seniority or work style. Matching calls focus on your selected track.",
+    "filters": {
+      "seniority": {
+        "all": "All levels",
+        "junior": "Junior",
+        "mid": "Mid",
+        "senior": "Senior"
+      },
+      "workType": {
+        "all": "All types",
+        "remote": "Remote",
+        "hybrid": "Hybrid",
+        "onsite": "On-site"
+      }
+    },
+    "seniorityLabel": "Seniority",
+    "workTypeLabel": "Work type",
+    "seniorityNames": {
+      "junior": "Junior",
+      "mid": "Mid-level",
+      "senior": "Senior"
+    },
+    "workTypeNames": {
+      "remote": "Remote",
+      "hybrid": "Hybrid",
+      "onsite": "On-site"
+    },
+    "skillsLabel": "Key skills",
+    "cta": "Match me to this role",
+    "ctaAria": "Match me to {role}",
+    "empty": "No openings match these filters right now—check back soon.",
+    "matchPrefix": "Job interest"
+  },
+  "testimonials": {
+    "eyebrow": "What alumni say",
+    "title": "Career pivots, promotions, and remote offers.",
+    "subtitle": "CoociDev Learn_Web alumni design for fintech, e-commerce, and creative studios across MENA and Europe.",
+    "cards": [
+      {
+        "name": "Laleh Vahidi",
+        "role": "Product Designer · Snapp!",
+        "quote": "The hybrid UI/front-end track unlocked my promotion to lead responsive projects in both Persian and English."
+      },
+      {
+        "name": "Kayvan Mehr",
+        "role": "Frontend Engineer · Freelance",
+        "quote": "My mentor helped me target EU agencies and I signed a remote contract two weeks after demo day."
+      },
+      {
+        "name": "Nazanin Etemad",
+        "role": "UX Designer · Divar",
+        "quote": "The 3D hero lab plus hiring support gave me confidence to collaborate with developers on production WebGL."
+      }
+    ]
+  },
+  "contact": {
+    "eyebrow": "Apply now",
+    "title": "Tell us how CoociDev Learn_Web can accelerate your next role.",
+    "subtitle": "We reply within 24 hours. The form sends one secure Telegram message and nothing is stored.",
+    "fields": {
+      "name": {
+        "label": "Full name",
+        "placeholder": "e.g. Sara Rahimi",
+        "helper": "Add your full name (minimum 3 characters)."
+      },
+      "phone": {
+        "label": "Phone or WhatsApp",
+        "placeholder": "+98 912 000 0000",
+        "helper": "Use an Iranian mobile (09xxxxxxxx) or international format."
+      },
+      "course": {
+        "label": "Course of interest",
+        "placeholder": "Select a course",
+        "helper": "Choose the course you want to enroll in.",
+        "empty": "Please select a course option."
+      },
+      "note": {
+        "label": "Context",
+        "placeholder": "Share goals, timeline, job interest, or portfolio link.",
+        "helper": "Optional but helpful - minimum 10 characters if provided."
+      }
+    },
+    "consent": "I agree to receive course updates and job-matching details by message.",
+    "consentHelper": "Required so we can contact you about the cohort.",
+    "submit": "Submit application",
+    "ok": "Thank you! We just sent the message and will follow up shortly.",
+    "fail": "We could not send the message. Please review the form or try again."
+  },
+  "footer": {
+    "tagline": "CoociDev Academy powers Learn_Web to turn designers into production-ready web experts with bilingual support.",
+    "links": {
+      "overview": "Overview",
+      "work": "Results",
+      "syllabus": "Curriculum",
+      "courses": "Courses",
+      "jobs": "Job Market",
+      "testimonials": "Testimonials",
+      "contact": "Apply",
+      "email": "Email us"
+    },
+    "privacy": "No storage—your form sends a single encrypted Telegram message to CoociDev's Learn_Web support desk.",
+    "brand": "CoociDev Academy",
+    "brandShort": "CoociDev",
+    "legal": "All rights reserved."
+  }
+}

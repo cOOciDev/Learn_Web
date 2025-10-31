@@ -1,0 +1,62 @@
+@layer sections {
+  .courses-shell {
+    display: grid;
+    gap: clamp(18px, 4vw, 28px);
+  }
+
+  .course-preamble p {
+    margin: 0;
+    color: var(--ink-muted);
+  }
+
+  .courses-grid {
+    display: grid;
+    gap: clamp(18px, 4vw, 24px);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .course-difficulty {
+    background: rgba(168, 85, 247, 0.16);
+    border-color: rgba(168, 85, 247, 0.32);
+    color: var(--ink-1);
+  }
+
+  .course-difficulty-beginner {
+    background: rgba(34, 197, 94, 0.16);
+    border-color: rgba(34, 197, 94, 0.32);
+    color: #b9f8d2;
+  }
+
+  .course-difficulty-intermediate {
+    background: rgba(96, 165, 250, 0.18);
+    border-color: rgba(96, 165, 250, 0.34);
+  }
+
+  .course-difficulty-advanced {
+    background: rgba(168, 85, 247, 0.2);
+    border-color: rgba(168, 85, 247, 0.38);
+  }
+
+  .course-title {
+    font-size: var(--step-1);
+    line-height: var(--line-tight);
+  }
+
+  .course-summary {
+    color: var(--ink-2);
+  }
+
+  .course-cta {
+    align-self: flex-start;
+  }
+
+  @media (max-width: 640px) {
+    .courses-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .course-cta {
+      width: 100%;
+    }
+  }
+}

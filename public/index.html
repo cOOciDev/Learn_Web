@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="dark" data-accent="ocean">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title data-i18n="meta.title">CoociDev Learn_Web | Modern Web Design Academy</title>
+  <meta name="description" content="Learn_Web is CoociDev Academy's modern web design program with live mentorship, bilingual content, and career matching." data-i18n-attr="content:meta.description" />
+  <meta property="og:title" content="CoociDev Learn_Web | Modern Web Design Academy" data-i18n-attr="content:meta.ogTitle" />
+  <meta property="og:description" content="Join CoociDev Academy's Learn_Web cohorts to master responsive, 3D, and production-ready web design with hiring support." data-i18n-attr="content:meta.ogDesc" />
+  <meta name="theme-color" content="#070b1a" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="../assets/css/fonts.css" />
+  <link rel="stylesheet" href="../assets/css/tokens.css" />
+  <link rel="stylesheet" href="../assets/css/themes.light.css" />
+  <link rel="stylesheet" href="../assets/css/themes.cyber.css" />
+  <link rel="stylesheet" href="../assets/css/themes.sunset.css" />
+  <link rel="stylesheet" href="../assets/css/themes.forest.css" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <link rel="stylesheet" href="../assets/css/layout.css" />
+  <link rel="stylesheet" href="../assets/css/components.buttons.css" />
+  <link rel="stylesheet" href="../assets/css/components.pills.css" />
+  <link rel="stylesheet" href="../assets/css/components.cards.css" />
+  <link rel="stylesheet" href="../assets/css/sections.header.css" />
+  <link rel="stylesheet" href="../assets/css/sections.hero.css" />
+  <link rel="stylesheet" href="../assets/css/sections.logos.css" />
+  <link rel="stylesheet" href="../assets/css/sections.work.css" />
+  <link rel="stylesheet" href="../assets/css/sections.syllabus.css" />
+  <link rel="stylesheet" href="../assets/css/sections.courses.css" />
+  <link rel="stylesheet" href="../assets/css/sections.jobs.css" />
+  <link rel="stylesheet" href="../assets/css/sections.testimonials.css" />
+  <link rel="stylesheet" href="../assets/css/sections.form.css" />
+  <link rel="stylesheet" href="../assets/css/sections.footer.css" />
+  <link rel="stylesheet" href="../assets/css/utilities.css" />
+</head>
+<body class="lang-en">
+  <div id="scrollbar" aria-hidden="true"></div>
+
+  <header id="top">
+    <div class="container site-header">
+      <a class="brand" href="#hero" aria-label="CoociDev Academy">
+        <span class="brand-mark">
+          <img src="./images/logo.svg" alt="" width="28" height="28" loading="lazy" />
+        </span>
+        <span class="brand-name" data-i18n="header.brand">CoociDev Academy</span>
+        <span class="brand-pill" data-i18n="header.tagline">Learn_Web Program</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a class="nav-link" href="#hero" data-i18n="header.overview">Overview</a>
+        <a class="nav-link" href="#work" data-i18n="header.work">Results</a>
+        <a class="nav-link" href="#syllabus" data-i18n="header.syllabus">Curriculum</a>
+        <a class="nav-link" href="#courses" data-i18n="header.courses">Courses</a>
+        <a class="nav-link" href="#jobs" data-i18n="header.jobs">Job Market</a>
+        <a class="nav-link" href="#testimonials" data-i18n="header.testimonials">Testimonials</a>
+        <a class="nav-link" href="#contact" data-i18n="header.contact">Apply</a>
+      </nav>
+
+      <div class="header-actions" role="group" aria-label="Site controls">
+        <button id="langToggle" class="btn-ghost btn-compact" type="button" aria-live="polite" data-i18n="header.langToggle">Fa / En</button>
+        <button id="themeToggle" class="btn-ghost btn-compact" type="button" aria-label="Toggle theme" title="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">&#9728;</span>
+        </button>
+        <button id="menuBtn" class="btn-ghost btn-compact" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
+          <span aria-hidden="true">&#9776;</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobileMenu" class="container hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="menuBtn">
+      <div class="mobile-nav glass">
+        <nav>
+          <a class="btn-ghost" href="#hero" data-i18n="header.overview">Overview</a>
+          <a class="btn-ghost" href="#work" data-i18n="header.work">Results</a>
+          <a class="btn-ghost" href="#syllabus" data-i18n="header.syllabus">Curriculum</a>
+          <a class="btn-ghost" href="#courses" data-i18n="header.courses">Courses</a>
+          <a class="btn-ghost" href="#jobs" data-i18n="header.jobs">Job Market</a>
+          <a class="btn-ghost" href="#testimonials" data-i18n="header.testimonials">Testimonials</a>
+          <a class="btn-ghost" href="#contact" data-i18n="header.contact">Apply</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section id="hero" class="hero section-block" data-reveal="up">
+      <div class="hero-canvas" aria-hidden="true">
+        <canvas id="hero3d"></canvas>
+      </div>
+      <div class="hero-inner container">
+        <div class="hero-copy">
+          <div class="pill-group" aria-hidden="true">
+            <span class="pill" data-i18n="hero.pillCohort">Live cohorts</span>
+            <span class="pill" data-i18n="hero.pillPlacement">Job-matching</span>
+            <span class="pill" data-i18n="hero.pillHybrid">Hybrid / Remote</span>
+          </div>
+          <h1 data-i18n="hero.title">Launch a modern web design career in 12 weeks.</h1>
+          <p data-i18n="hero.subtitle">
+            CoociDev Academy's Learn_Web program blends immersive web-design courses, live mentorship, and a hiring network to get you hired as a high-impact web designer.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#courses" data-i18n="hero.ctaPrimary">Browse Courses</a>
+            <a class="btn-ghost" href="#jobs" data-i18n="hero.ctaSecondary">See job openings</a>
+          </div>
+          <p class="hero-note" data-i18n="hero.note">Powered by CoociDev mentors and trusted by startups building bilingual, RTL-ready experiences.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="logos" class="logos container" data-reveal="up">
+      <div class="logos-head">
+        <p class="eyebrow" data-i18n="logos.eyebrow">Hiring partners</p>
+        <p class="logos-copy" data-i18n="logos.copy">Learn_Web graduates from CoociDev Academy ship UI systems for regional startups, SaaS teams, and global agencies.</p>
+      </div>
+      <ul class="logo-line" aria-label="Partner logos">
+        <li>NeonStack</li>
+        <li>Atlas Labs</li>
+        <li>Hyperline</li>
+        <li>Vibe Studio</li>
+        <li>NextGate</li>
+        <li>FrameWave</li>
+      </ul>
+    </section>
+
+    <section id="work" class="container section-block" data-reveal="up">
+      <div class="section-head stack">
+        <p class="eyebrow" data-i18n="work.eyebrow">Outcomes</p>
+        <h2 data-i18n="work.title">Craft, test, and ship production-grade experiences.</h2>
+        <p class="section-sub" data-i18n="work.subtitle">Every Learn_Web cohort delivers live projects with measurable results and cross-functional collaboration.</p>
+      </div>
+      <div class="work-grid">
+        <article class="card" data-reveal="up">
+          <h3 data-i18n="work.cards.0.title">Responsive Design Systems</h3>
+          <p data-i18n="work.cards.0.body">Ship design tokens, UI kits, and multi-brand components that render flawlessly across languages.</p>
+          <ul>
+            <li data-i18n="work.cards.0.points.0">Fluid typography and RTL-ready grids</li>
+            <li data-i18n="work.cards.0.points.1">Design-to-code handoff with live Storybook</li>
+            <li data-i18n="work.cards.0.points.2">Performance budgets and accessibility</li>
+          </ul>
+        </article>
+        <article class="card" data-reveal="up">
+          <h3 data-i18n="work.cards.1.title">Conversion-first Landing Pages</h3>
+          <p data-i18n="work.cards.1.body">Pair UX research with animation systems to boost signups and in-product activation.</p>
+          <ul>
+            <li data-i18n="work.cards.1.points.0">UX audits and microcopy testing</li>
+            <li data-i18n="work.cards.1.points.1">3D hero and motion guidelines</li>
+            <li data-i18n="work.cards.1.points.2">Analytics setup with clear KPIs</li>
+          </ul>
+        </article>
+        <article class="card" data-reveal="up">
+          <h3 data-i18n="work.cards.2.title">Real-world Collaboration</h3>
+          <p data-i18n="work.cards.2.body">Practice dev handoff, async rituals, and stakeholder presentations that mirror modern teams.</p>
+          <ul>
+            <li data-i18n="work.cards.2.points.0">Weekly critiques with design leads</li>
+            <li data-i18n="work.cards.2.points.1">Paired implementation with engineers</li>
+            <li data-i18n="work.cards.2.points.2">Hiring day with portfolio challenge</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="syllabus" class="container section-block" data-reveal="up">
+      <div class="section-head stack">
+        <p class="eyebrow" data-i18n="syllabus.eyebrow">Curriculum map</p>
+        <h2 data-i18n="syllabus.title">Six modules blended across design, code, and strategy.</h2>
+        <p class="section-sub" data-i18n="syllabus.subtitle">CoociDev Learn_Web is built for designers moving into hybrid UI/front-end roles.</p>
+      </div>
+      <ol class="syllabus-list">
+        <li data-i18n="syllabus.items.0">Foundations: research, UX flows, accessibility, HTML/CSS baseline.</li>
+        <li data-i18n="syllabus.items.1">Systems thinking: tokens, grids, responsive typography, component APIs.</li>
+        <li data-i18n="syllabus.items.2">Modern front-end: semantic HTML, CSS architecture, Three.js integration.</li>
+        <li data-i18n="syllabus.items.3">Motion & 3D: micro-interactions, reduced motion patterns, performance.</li>
+        <li data-i18n="syllabus.items.4">Shipping & SEO: audits, Lighthouse, content ops, multi-lingual support.</li>
+        <li data-i18n="syllabus.items.5">Career studio: portfolio review, interview loops, offer negotiation.</li>
+      </ol>
+    </section>
+
+    <section id="courses" class="container section-block" data-reveal="up">
+      <div class="section-head stack">
+        <p class="eyebrow" data-i18n="courses.eyebrow">Courses</p>
+        <h2 data-i18n="courses.title">Pick the web-design sprint that fits your goals.</h2>
+        <p class="section-sub" data-i18n="courses.subtitle">Each Learn_Web cohort runs live with CoociDev mentors, English/فارسی materials, and project-based feedback.</p>
+      </div>
+      <div class="courses-shell">
+        <div class="course-preamble">
+          <p data-i18n="courses.note">Tap “Enroll” to populate the application form below. Seats unlock weekly.</p>
+        </div>
+        <div class="courses-grid" data-courses-list aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="jobs" class="container section-block" data-reveal="up">
+      <div class="section-head stack">
+        <p class="eyebrow" data-i18n="jobs.eyebrow">Job market</p>
+        <h2 data-i18n="jobs.title">Roles hiring right now through CoociDev Learn_Web.</h2>
+        <p class="section-sub" data-i18n="jobs.subtitle">Filter opportunities by seniority or work style. Matching calls focus on your selected track.</p>
+      </div>
+      <div class="jobs-toolbar">
+        <div class="filter-group" role="group" aria-label="Filter by seniority" data-filter-group="seniority">
+          <button type="button" class="pill active" data-filter="all" data-i18n="jobs.filters.seniority.all">All levels</button>
+          <button type="button" class="pill" data-filter="junior" data-i18n="jobs.filters.seniority.junior">Junior</button>
+          <button type="button" class="pill" data-filter="mid" data-i18n="jobs.filters.seniority.mid">Mid</button>
+          <button type="button" class="pill" data-filter="senior" data-i18n="jobs.filters.seniority.senior">Senior</button>
+        </div>
+        <div class="filter-group" role="group" aria-label="Filter by work type" data-filter-group="workType">
+          <button type="button" class="pill active" data-filter="all" data-i18n="jobs.filters.workType.all">All types</button>
+          <button type="button" class="pill" data-filter="remote" data-i18n="jobs.filters.workType.remote">Remote</button>
+          <button type="button" class="pill" data-filter="hybrid" data-i18n="jobs.filters.workType.hybrid">Hybrid</button>
+          <button type="button" class="pill" data-filter="onsite" data-i18n="jobs.filters.workType.onsite">On-site</button>
+        </div>
+      </div>
+      <div class="jobs-grid" data-jobs-list aria-live="polite"></div>
+    </section>
+
+    <section id="testimonials" class="container section-block" data-reveal="up">
+      <div class="section-head stack">
+        <p class="eyebrow" data-i18n="testimonials.eyebrow">What alumni say</p>
+        <h2 data-i18n="testimonials.title">Career pivots, promotions, and remote offers.</h2>
+        <p class="section-sub" data-i18n="testimonials.subtitle">CoociDev Learn_Web alumni design for fintech, e-commerce, and creative studios across MENA and Europe.</p>
+      </div>
+      <div class="testimonials-grid">
+        <article class="testimonial card">
+          <div class="testimonial-head">
+            <img src="./images/avatar-1.svg" alt="" width="48" height="48" loading="lazy" />
+            <div>
+              <strong data-i18n="testimonials.cards.0.name">Laleh Vahidi</strong>
+              <span data-i18n="testimonials.cards.0.role">Product Designer · Snapp!</span>
+            </div>
+          </div>
+          <p data-i18n="testimonials.cards.0.quote">The hybrid UI/front-end track unlocked my promotion to lead responsive projects in both Persian and English.</p>
+        </article>
+        <article class="testimonial card">
+          <div class="testimonial-head">
+            <img src="./images/avatar-2.svg" alt="" width="48" height="48" loading="lazy" />
+            <div>
+              <strong data-i18n="testimonials.cards.1.name">Kayvan Mehr</strong>
+              <span data-i18n="testimonials.cards.1.role">Frontend Engineer · Freelance</span>
+            </div>
+          </div>
+          <p data-i18n="testimonials.cards.1.quote">My mentor helped me target EU agencies and I signed a remote contract two weeks after demo day.</p>
+        </article>
+        <article class="testimonial card">
+          <div class="testimonial-head">
+            <img src="./images/avatar-3.svg" alt="" width="48" height="48" loading="lazy" />
+            <div>
+              <strong data-i18n="testimonials.cards.2.name">Nazanin Etemad</strong>
+              <span data-i18n="testimonials.cards.2.role">UX Designer · Divar</span>
+            </div>
+          </div>
+          <p data-i18n="testimonials.cards.2.quote">The 3D hero lab plus hiring support gave me confidence to collaborate with developers on production WebGL.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="container section-block" data-reveal="up">
+      <div class="section-head stack">
+        <p class="eyebrow" data-i18n="contact.eyebrow">Apply now</p>
+        <h2 data-i18n="contact.title">Tell us how CoociDev Learn_Web can accelerate your next role.</h2>
+        <p class="section-sub" data-i18n="contact.subtitle">We reply within 24 hours. The form sends one secure Telegram message and nothing is stored.</p>
+      </div>
+      <form id="lead-form" novalidate data-reveal="up" data-scroll-target>
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="fullName" data-i18n="contact.fields.name.label">Full name</label>
+            <input id="fullName" name="fullName" type="text" required autocomplete="name" inputmode="text" data-i18n-attr="placeholder:contact.fields.name.placeholder" placeholder="e.g. Sara Rahimi" />
+            <p id="err-fullName" class="helper" data-i18n="contact.fields.name.helper">Add your full name (min. 3 characters).</p>
+          </div>
+
+          <div class="form-field">
+            <label for="phone" data-i18n="contact.fields.phone.label">Phone or WhatsApp</label>
+            <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" data-i18n-attr="placeholder:contact.fields.phone.placeholder" placeholder="+98 912 000 0000" />
+            <p id="err-phone" class="helper" data-i18n="contact.fields.phone.helper">Use an Iranian mobile (09xxxxxxxx) or international format.</p>
+          </div>
+
+          <div class="form-field">
+            <label for="course" data-i18n="contact.fields.course.label">Course of interest</label>
+            <select id="course" name="course" required data-i18n-attr="data-empty:contact.fields.course.empty">
+              <option value="" data-i18n="contact.fields.course.placeholder">Select a course</option>
+            </select>
+            <p id="err-course" class="helper" data-i18n="contact.fields.course.helper">Choose the course you want to enroll in.</p>
+          </div>
+
+          <div class="form-field full">
+            <label for="note" data-i18n="contact.fields.note.label">Context</label>
+            <textarea id="note" name="note" rows="4" data-i18n-attr="placeholder:contact.fields.note.placeholder" placeholder="Share goals, timeline, job interest, or portfolio link." minlength="10"></textarea>
+            <p id="err-note" class="helper" data-i18n="contact.fields.note.helper">Optional but helpful - minimum 10 characters if provided.</p>
+          </div>
+        </div>
+
+        <div class="checkbox-field">
+          <input id="consent" type="checkbox" required aria-describedby="consentHelp" />
+          <label for="consent" data-i18n="contact.consent">I agree to receive course updates and job-matching details by message.</label>
+        </div>
+        <p id="consentHelp" class="helper" data-i18n="contact.consentHelper">Required so we can contact you about the cohort.</p>
+
+        <div class="form-actions">
+          <button class="btn submit-btn" type="submit" data-i18n="contact.submit">Submit application</button>
+        </div>
+
+        <p id="ok" class="form-status" role="status" data-i18n="contact.ok">Thank you! We just sent the message and will follow up shortly.</p>
+        <p id="fail" class="form-status" role="status" data-i18n="contact.fail">We could not send the message. Try again or reach us on Instagram.</p>
+      </form>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container footer-shell">
+      <div class="footer-top">
+        <div class="brand-stack">
+          <div class="brand">
+            <span class="brand-mark" aria-hidden="true"></span>
+            <span data-i18n="footer.brandShort">CoociDev</span>
+          </div>
+          <p class="text-ink-2" data-i18n="footer.tagline">CoociDev Academy powers Learn_Web to turn designers into production-ready web experts with bilingual support.</p>
+        </div>
+
+        <div class="footer-links">
+          <a class="btn-ghost" href="#hero" data-i18n="footer.links.overview">Overview</a>
+          <a class="btn-ghost" href="#work" data-i18n="footer.links.work">Results</a>
+          <a class="btn-ghost" href="#syllabus" data-i18n="footer.links.syllabus">Curriculum</a>
+          <a class="btn-ghost" href="#courses" data-i18n="footer.links.courses">Courses</a>
+          <a class="btn-ghost" href="#jobs" data-i18n="footer.links.jobs">Job Market</a>
+          <a class="btn-ghost" href="#testimonials" data-i18n="footer.links.testimonials">Testimonials</a>
+          <a class="btn-ghost" href="#contact" data-i18n="footer.links.contact">Apply</a>
+          <a class="btn-ghost" href="mailto:hello@learnweb.academy" data-i18n="footer.links.email">Email us</a>
+        </div>
+
+        <div class="footer-meta stack">
+          <strong data-i18n="footer.privacy">No storage—your form sends a single encrypted Telegram message to CoociDev's Learn_Web support desk.</strong>
+          <div class="footer-social">
+            <a href="#" aria-label="Discord">
+              <img src="./icons/discord.svg" alt="" width="22" height="22" loading="lazy" />
+            </a>
+            <a href="#" aria-label="YouTube">
+              <img src="./icons/youtube.svg" alt="" width="22" height="22" loading="lazy" />
+            </a>
+            <a href="#" aria-label="Instagram">
+              <img src="./icons/instagram.svg" alt="" width="22" height="22" loading="lazy" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-small">
+        <span class="footer-brandline">
+          <span aria-hidden="true">&copy;</span>
+          <span id="y">2024</span>
+          <span data-i18n="footer.brand">CoociDev Academy</span>
+        </span>
+        <span data-i18n="footer.legal">All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.TELEGRAM_PROXY_URL = '';
+    window.TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';
+    window.TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN';
+  </script>
+  <script type="module" src="../assets/js/app.js"></script>
+</body>
+</html>

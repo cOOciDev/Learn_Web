@@ -1,0 +1,50 @@
+@layer sections {
+  .logos {
+    display: grid;
+    gap: clamp(18px, 5vw, 28px);
+    align-items: center;
+    text-align: center;
+    padding-block: clamp(28px, 6vw, 42px);
+    border-radius: var(--radius-lg);
+    background: rgba(13, 18, 42, 0.8);
+    border: 1px solid rgba(96, 126, 255, 0.18);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .logos-head {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .logo-line {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: clamp(14px, 3vw, 24px);
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .logo-line li {
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(96, 126, 255, 0.25);
+    background: rgba(96, 126, 255, 0.08);
+    padding: 0.9em 1.1em;
+    font-weight: 600;
+    color: var(--ink-2);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: var(--step--1);
+  }
+
+  .logo-line li:nth-child(odd) {
+    background: rgba(168, 85, 247, 0.12);
+    border-color: rgba(168, 85, 247, 0.28);
+  }
+
+  @media (max-width: 640px) {
+    .logo-line {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@layer sections {
+  .testimonials-grid {
+    display: grid;
+    gap: clamp(18px, 4vw, 24px);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .testimonial-head {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .testimonial-head img {
+    border-radius: 50%;
+    background: rgba(96, 126, 255, 0.16);
+    padding: 6px;
+  }
+
+  .testimonial strong {
+    font-size: var(--step--1);
+    color: var(--ink-1);
+  }
+
+  .testimonial span {
+    display: block;
+    font-size: var(--step--2);
+    color: var(--ink-muted);
+  }
+
+  .testimonial p {
+    color: var(--ink-2);
+  }
+}

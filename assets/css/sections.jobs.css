@@ -1,0 +1,54 @@
+@layer sections {
+  .jobs-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(12px, 3vw, 20px);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .jobs-grid {
+    display: grid;
+    gap: clamp(18px, 4vw, 24px);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .job-head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .job-title {
+    font-size: var(--step-1);
+    color: var(--ink-1);
+  }
+
+  .job-summary {
+    color: var(--ink-2);
+  }
+
+  .job-skills-title {
+    font-weight: 600;
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+  }
+
+  .job-cta {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 640px) {
+    .jobs-toolbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .job-cta {
+      width: 100%;
+    }
+  }
+}

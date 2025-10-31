@@ -1,0 +1,15 @@
+@layer sections {
+  .work-grid {
+    display: grid;
+    gap: clamp(18px, 4vw, 24px);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .work-grid .card ul {
+    margin: 0;
+  }
+
+  .work-grid .card ul li {
+    font-size: var(--step--1);
+  }
+}

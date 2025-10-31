@@ -1,0 +1,48 @@
+@layer components {
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35em;
+    border-radius: 999px;
+    padding: 0.35em 1.1em;
+    border: 1px solid rgba(96, 126, 255, 0.35);
+    background: rgba(96, 126, 255, 0.12);
+    color: var(--ink-2);
+    font-weight: 600;
+    font-size: var(--step--1);
+    transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    min-height: 34px;
+  }
+
+  .pill svg {
+    width: 1em;
+    height: 1em;
+  }
+
+  .pill.active,
+  .pill[data-filter].active {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    border-color: transparent;
+    color: #040410;
+    box-shadow: var(--accent-glow);
+  }
+
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-group .pill {
+    cursor: pointer;
+    user-select: none;
+  }
+}

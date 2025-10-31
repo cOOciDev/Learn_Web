@@ -1,0 +1,37 @@
+@layer sections {
+  .syllabus-list {
+    display: grid;
+    gap: 0.9rem;
+    counter-reset: modules;
+    padding: 0;
+    list-style: none;
+  }
+
+  .syllabus-list li {
+    position: relative;
+    padding-inline-start: 2.6em;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(96, 126, 255, 0.24);
+    background: rgba(96, 126, 255, 0.08);
+    padding-block: 1em;
+    color: var(--ink-2);
+  }
+
+  .syllabus-list li::before {
+    counter-increment: modules;
+    content: counter(modules, decimal-leading-zero);
+    position: absolute;
+    inset-inline-start: 1em;
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    font-weight: 700;
+    font-size: var(--step--1);
+    color: var(--accent-1);
+    letter-spacing: 0.08em;
+  }
+
+  .syllabus-list li:nth-child(even) {
+    background: rgba(168, 85, 247, 0.12);
+    border-color: rgba(168, 85, 247, 0.26);
+  }
+}

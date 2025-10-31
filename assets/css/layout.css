@@ -1,0 +1,104 @@
+@layer layout {
+  .container {
+    width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-pad);
+  }
+
+  header {
+    position: fixed;
+    inset-inline: 0;
+    top: 0;
+    z-index: 100;
+    background: rgba(8, 11, 30, 0.82);
+    backdrop-filter: blur(28px);
+    border-bottom: 1px solid var(--surface-border);
+    transition: background var(--transition-base), border-color var(--transition-base);
+  }
+
+  header.scrolled {
+    background: rgba(8, 11, 30, 0.94);
+    border-bottom-color: rgba(96, 126, 255, 0.32);
+  }
+
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(12px, 4vw, 28px);
+    min-height: var(--header-height);
+  }
+
+  main.page-shell {
+    position: relative;
+    z-index: 1;
+    padding-block: clamp(28px, 8vw, 56px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(32px, 8vw, 64px);
+  }
+
+  .section-block {
+    position: relative;
+    border-radius: var(--radius-lg);
+    padding: clamp(28px, 6vw, 48px);
+    background: var(--surface-0);
+    border: 1px solid var(--surface-border);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+
+  .section-block::before {
+    content: "";
+    position: absolute;
+    inset: -25% -35%;
+    background: radial-gradient(circle at 25% 18%, rgba(96, 165, 250, 0.22), transparent 62%), radial-gradient(circle at 74% 22%, rgba(168, 85, 247, 0.18), transparent 68%);
+    opacity: 0.45;
+    pointer-events: none;
+    filter: blur(0px);
+  }
+
+  .section-block > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  #scrollbar {
+    position: fixed;
+    inset: calc(var(--safe-top) + 0px) 0 auto 0;
+    height: var(--scrollbar-height);
+    transform-origin: left;
+    transform: scaleX(0);
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    z-index: 120;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+    opacity: 0;
+  }
+
+  .glass {
+    background: rgba(12, 18, 42, 0.9);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xs);
+  }
+
+  @media (max-width: 1024px) {
+    main.page-shell {
+      gap: clamp(24px, 7vw, 48px);
+    }
+  }
+
+  @media (max-width: 768px) {
+    body {
+      padding-top: calc(var(--header-height) + var(--safe-top) + 12px);
+    }
+
+    .section-block {
+      padding-inline: clamp(18px, 6vw, 26px);
+    }
+
+    .site-header {
+      gap: 16px;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+:root[data-accent="forest"] {
+  --accent-1: #20e3b2;
+  --accent-2: #55b2ff;
+  --accent-soft: rgba(32, 227, 178, 0.18);
+  --accent-glow: 0 18px 40px rgba(32, 227, 178, 0.35);
+}

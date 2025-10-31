@@ -1,0 +1,60 @@
+@layer components {
+  .btn,
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55em;
+    font-weight: 600;
+    border-radius: 999px;
+    padding: 0.75em 1.5em;
+    min-height: 48px;
+    position: relative;
+    transition: filter var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .btn {
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    color: #01030b;
+    box-shadow: var(--accent-glow);
+  }
+
+  .btn:hover,
+  .btn:focus-visible {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-ghost {
+    background: rgba(96, 126, 255, 0.14);
+    border: 1px solid rgba(96, 126, 255, 0.28);
+    color: var(--ink-1);
+  }
+
+  .btn-ghost:hover,
+  .btn-ghost:focus-visible {
+    border-color: rgba(96, 126, 255, 0.5);
+    background: rgba(96, 126, 255, 0.22);
+  }
+
+  .btn-compact {
+    padding: 0.45em 1.1em;
+    min-height: 40px;
+    font-size: var(--step--1);
+  }
+
+  .btn[data-loading="1"],
+  .submit-btn[data-loading="1"] {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .btn.w-full,
+  .btn-ghost.w-full {
+    width: 100%;
+  }
+}

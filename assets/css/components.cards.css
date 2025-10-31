@@ -1,0 +1,156 @@
+@layer components {
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--surface-1);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(96, 126, 255, 0.22);
+    padding: clamp(20px, 4vw, 28px);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 20% 20%, rgba(96, 165, 250, 0.18), transparent 70%);
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card:hover::before,
+  .card:focus-within::before {
+    opacity: 1;
+  }
+
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-2px);
+    border-color: rgba(96, 126, 255, 0.45);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .card h3 {
+    font-size: var(--step-2);
+    color: var(--ink-1);
+  }
+
+  .card p {
+    color: var(--ink-2);
+  }
+
+  .card ul {
+    display: grid;
+    gap: 0.5em;
+    list-style: disc;
+    padding-inline-start: 1.3em;
+    color: var(--ink-2);
+  }
+
+  .card ul li::marker {
+    color: var(--accent-1);
+  }
+
+  .course-card,
+  .job-card {
+    gap: 1.2rem;
+  }
+
+  .course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--step--1);
+  }
+
+  .course-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.35em 0.9em;
+    border-radius: 999px;
+    background: rgba(96, 165, 250, 0.18);
+    color: var(--ink-1);
+    font-weight: 600;
+  }
+
+  .course-focus {
+    font-weight: 600;
+    color: var(--ink-muted);
+  }
+
+  .course-outcomes {
+    display: grid;
+    gap: 0.45em;
+    padding-inline-start: 1.1em;
+  }
+
+  .course-outcomes-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45em;
+  }
+
+  .course-outcomes-title {
+    font-weight: 600;
+    font-size: var(--step--1);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-muted);
+  }
+
+  .job-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .job-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    list-style: none;
+  }
+
+  .job-skill {
+    list-style: none;
+    background: rgba(96, 126, 255, 0.14);
+    border: 1px solid rgba(96, 126, 255, 0.28);
+    border-radius: 999px;
+    padding: 0.3em 0.9em;
+    font-size: var(--step--2);
+    color: var(--ink-2);
+  }
+
+  .jobs-empty {
+    padding: clamp(18px, 4vw, 24px);
+    border-radius: var(--radius-md);
+    border: 1px dashed rgba(96, 126, 255, 0.35);
+    background: rgba(96, 126, 255, 0.12);
+    color: var(--ink-2);
+    text-align: center;
+  }
+
+  .testimonial {
+    gap: 1.4rem;
+  }
+
+  .testimonial p {
+    color: var(--ink-1);
+    font-size: var(--step--1);
+  }
+}

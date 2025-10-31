@@ -1,0 +1,6 @@
+:root[data-accent="sunset"] {
+  --accent-1: #ff8a65;
+  --accent-2: #ff5dc8;
+  --accent-soft: rgba(255, 138, 101, 0.16);
+  --accent-glow: 0 18px 40px rgba(255, 138, 101, 0.35);
+}
