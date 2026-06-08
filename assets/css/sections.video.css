@@ -1,0 +1,23 @@
+@layer sections {
+  .academy-video {
+    display: grid;
+    gap: clamp(18px, 4vw, 28px);
+  }
+
+  .video-shell {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(96, 126, 255, 0.28);
+    background: rgba(8, 12, 32, 0.82);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .video-shell video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #050816;
+    object-fit: cover;
+  }
+}
