@@ -1,172 +1,442 @@
 export const COURSES = [
   {
-    id: 'ui-front-end',
+    id: '3d-modeling',
     difficulty: 'intermediate',
-    focus: {
-      en: 'UI systems · CSS',
-      fa: 'سیستم‌های UI · CSS'
-    },
-    badge: {
-      en: '1×/week · 2h',
-      fa: '۱×/هفته · ۲ ساعت'
+    icon: '3D',
+    image: {
+      src: './images/courses/3d-modeling.svg',
+      alt: {
+        fa: 'کاور دوره مدل سازی سه بعدی',
+        en: '3D modeling course cover'
+      }
     },
     title: {
-      en: 'UI / Front-End Design',
-      fa: 'طراحی رابط کاربری/فرانت'
+      fa: 'دوره مدل سازی سه بعدی',
+      en: '3D Modeling Course'
+    },
+    duration: {
+      fa: '6 هفته',
+      en: '6 weeks'
+    },
+    level: {
+      fa: 'متوسط مقدماتی',
+      en: 'Early intermediate'
+    },
+    price: {
+      fa: '3,000,000 تومان',
+      en: '3,000,000 toman'
     },
     summary: {
-      en: 'Design responsive UI systems and ship pixel-accurate builds with modern CSS architecture.',
-      fa: 'سیستم‌های UI واکنش‌گرا را طراحی کنید و با معماری مدرن CSS پیاده‌سازی دقیق بسازید.'
+      fa: '۳ مدل قابل ارائه، آماده ورود به فریلنسری',
+      en: 'Build 3 presentable models and get ready for freelance work.'
     },
-    outcomes: {
-      en: [
-        'Define bilingual design tokens and spacing scales',
-        'Document accessible component states and flows',
-        'Translate Figma specs into clean HTML/CSS',
-        'Deliver RTL/LTR themes with minimal overrides'
-      ],
-      fa: [
-        'تعریف توکن‌های طراحی و مقیاس‌های فاصله دو‌زبانه',
-        'مستندسازی حالت‌های دسترس‌پذیر و فلوهای کامپوننت',
-        'ترجمه دقیق طراحی‌ها به HTML/CSS تمیز',
-        'ارائه تم‌های RTL/LTR با حداقل override'
-      ]
+    outcome: {
+      fa: 'ساخت مدل‌های سه بعدی قابل استفاده در پروژه‌ها',
+      en: 'Reusable 3D models for real projects'
+    },
+    audience: {
+      fa: 'علاقه‌مندان به دنیای 3D و بازی‌سازی',
+      en: 'Students interested in 3D and game creation'
     }
   },
   {
-    id: 'web-foundations',
+    id: 'game-environment',
+    difficulty: 'intermediate',
+    icon: 'G',
+    image: {
+      src: './images/courses/game-environment.svg',
+      alt: {
+        fa: 'کاور دوره طراحی محیط بازی',
+        en: 'Game environment course cover'
+      }
+    },
+    title: {
+      fa: 'دوره طراحی و ساخت محیط بازی',
+      en: 'Game Environment Design'
+    },
+    duration: {
+      fa: '8 هفته',
+      en: '8 weeks'
+    },
+    level: {
+      fa: 'متوسط و حرفه‌ای',
+      en: 'Intermediate to professional'
+    },
+    price: {
+      fa: '6,000,000 تومان',
+      en: '6,000,000 toman'
+    },
+    summary: {
+      fa: 'ساخت محیط بازی آماده Unity',
+      en: 'Create a Unity-ready game environment.'
+    },
+    outcome: {
+      fa: 'محیط‌های حرفه‌ای قابل استفاده در بازی‌ها',
+      en: 'Professional environments ready for games'
+    },
+    audience: {
+      fa: 'طراحان بازی و محیط‌های سه بعدی',
+      en: 'Game designers and 3D environment creators'
+    }
+  },
+  {
+    id: 'animation',
+    difficulty: 'intermediate',
+    icon: 'M',
+    image: {
+      src: './images/courses/animation.svg',
+      alt: {
+        fa: 'کاور دوره انیمیشن سازی',
+        en: 'Animation course cover'
+      }
+    },
+    title: {
+      fa: 'دوره انیمیشن سازی',
+      en: 'Animation Course'
+    },
+    duration: {
+      fa: '8 هفته',
+      en: '8 weeks'
+    },
+    level: {
+      fa: 'متوسط و حرفه‌ای',
+      en: 'Intermediate to professional'
+    },
+    price: {
+      fa: '7,000,000 تومان',
+      en: '7,000,000 toman'
+    },
+    summary: {
+      fa: 'ساخت انیمیشن کوتاه حرفه‌ای',
+      en: 'Produce a professional short animation.'
+    },
+    outcome: {
+      fa: 'انیمیشن سه بعدی و موشن قابل استفاده در رزومه',
+      en: 'Portfolio-ready 3D animation and motion'
+    },
+    audience: {
+      fa: 'علاقه‌مندان به انیمیشن و موشن گرافیک',
+      en: 'Students interested in animation and motion graphics'
+    }
+  },
+  {
+    id: 'digital-kickstart',
     difficulty: 'beginner',
-    focus: {
-      en: 'Foundations · Accessibility',
-      fa: 'مبانی · دسترس‌پذیری'
-    },
-    badge: {
-      en: '1×/week · 2h',
-      fa: '۱×/هفته · ۲ ساعت'
+    icon: 'S',
+    image: {
+      src: './images/courses/digital-kickstart.svg',
+      alt: {
+        fa: 'کاور دوره شروع سریع دنیای دیجیتال',
+        en: 'Digital quick start course cover'
+      }
     },
     title: {
-      en: 'Web Foundations 0→100',
-      fa: 'دوره مقدماتی صفر تا صد طراحی وب'
+      fa: 'دوره شروع سریع دنیای دیجیتال',
+      en: 'Digital World Quick Start'
+    },
+    duration: {
+      fa: '4 هفته',
+      en: '4 weeks'
+    },
+    level: {
+      fa: 'مقدماتی',
+      en: 'Beginner'
+    },
+    price: {
+      fa: '900,000 تومان',
+      en: '900,000 toman'
     },
     summary: {
-      en: 'Master HTML, CSS, and JavaScript essentials to build accessible layouts from scratch.',
-      fa: 'مبانی HTML، CSS و جاوااسکریپت را برای ساخت چیدمان‌های دسترس‌پذیر از صفر یاد بگیرید.'
+      fa: 'شناخت مسیر شغلی و اولین پروژه ساده',
+      en: 'Discover career paths and build a first simple project.'
     },
-    outcomes: {
-      en: [
-        'Semantic HTML, forms, and validation patterns',
-        'Modern layout with Flexbox and CSS Grid',
-        'Progressive enhancement and accessibility mindset',
-        'Deploy static sites with Netlify/Vercel workflows'
-      ],
-      fa: [
-        'HTML معنایی، فرم‌ها و الگوهای اعتبارسنجی',
-        'چیدمان مدرن با Flexbox و CSS Grid',
-        'ذهنیت بهبود تدریجی و رعایت دسترس‌پذیری',
-        'دیپلوی سایت‌های استاتیک با Netlify/Vercel'
-      ]
+    outcome: {
+      fa: 'آشنایی با دنیای دیجیتال و ساخت اولین پروژه',
+      en: 'Digital foundations plus a first project'
+    },
+    audience: {
+      fa: 'مبتدیان و همه سنین از ۱۰ سال به بالا',
+      en: 'Beginners and students age 10+'
     }
   },
   {
-    id: 'web-3d',
-    difficulty: 'advanced',
-    focus: {
-      en: 'WebGL · Motion',
-      fa: 'WebGL · موشن'
-    },
-    badge: {
-      en: '1×/week · 2h',
-      fa: '۱×/هفته · ۲ ساعت'
+    id: 'real-programming',
+    difficulty: 'beginner',
+    icon: 'C',
+    image: {
+      src: './images/courses/real-programming.svg',
+      alt: {
+        fa: 'کاور دوره برنامه نویسی واقعی',
+        en: 'Real programming course cover'
+      }
     },
     title: {
-      en: '3D Website Design',
-      fa: 'طراحی وب‌سایت سه‌بعدی / WebGL'
+      fa: 'دوره ورود به برنامه نویسی واقعی',
+      en: 'Real Programming Entry'
+    },
+    duration: {
+      fa: '6 هفته',
+      en: '6 weeks'
+    },
+    level: {
+      fa: 'مقدماتی',
+      en: 'Beginner'
+    },
+    price: {
+      fa: '2,000,000 تومان',
+      en: '2,000,000 toman'
     },
     summary: {
-      en: 'Blend Three.js scenes with performant UI layers, motion guidelines, and graceful fallbacks.',
-      fa: 'صحنه‌های Three.js را با لایه‌های UI performant، راهنمای موشن و fallbackهای مناسب ترکیب کنید.'
+      fa: 'توانایی ساخت برنامه‌های کوچک',
+      en: 'Learn to build small real applications.'
     },
-    outcomes: {
-      en: [
-        'Storyboard 3D hero concepts and interaction states',
-        'Integrate GLTF assets, lighting, and post-processing',
-        'Ship particle fallbacks for reduced-motion visitors',
-        'Optimize bundle size, memory, and accessibility'
-      ],
-      fa: [
-        'طراحی استوری‌بورد برای هیرو سه‌بعدی و حالات تعاملی',
-        'یکپارچه‌سازی دارایی‌های GLTF، نورپردازی و post-processing',
-        'ارائه fallback ذرات برای کاربران با کاهش حرکت',
-        'بهینه‌سازی اندازه باندل، حافظه و دسترس‌پذیری'
-      ]
+    outcome: {
+      fa: 'کدنویسی، حل مسئله و پروژه‌های ساده',
+      en: 'Coding, problem solving, and simple projects'
+    },
+    audience: {
+      fa: 'علاقه‌مندان به برنامه‌نویسی از صفر',
+      en: 'Students starting programming from zero'
     }
   },
   {
-    id: 'advanced-publish',
-    difficulty: 'advanced',
-    focus: {
-      en: 'SEO · Delivery',
-      fa: 'سئو · انتشار'
-    },
-    badge: {
-      en: '1×/week · 2h',
-      fa: '۱×/هفته · ۲ ساعت'
-    },
-    title: {
-      en: 'Advanced & Publish',
-      fa: 'پیشرفته: دیپلوی، SEO، انتشار'
-    },
-    summary: {
-      en: 'Ship production-ready sites with automation, analytics, and multi-lingual SEO fundamentals.',
-      fa: 'سایت‌های آماده تولید را با اتوماسیون، آنالیتیکس و اصول SEO چندزبانه منتشر کنید.'
-    },
-    outcomes: {
-      en: [
-        'Run Lighthouse and Core Web Vitals audits',
-        'Implement structured data and multi-language metadata',
-        'Configure CI/CD pipelines for Netlify & Vercel',
-        'Set up analytics dashboards and conversion experiments'
-      ],
-      fa: [
-        'اجرای گزارش Lighthouse و Core Web Vitals',
-        'پیاده‌سازی داده‌های ساخت‌یافته و متادیتای چندزبانه',
-        'پیکربندی پایپ‌لاین CI/CD برای Netlify و Vercel',
-        'راه‌اندازی داشبورد آنالیتیکس و تست‌های تبدیل'
-      ]
-    }
-  },
-  {
-    id: 'backend-design',
+    id: 'professional-web',
     difficulty: 'intermediate',
-    focus: {
-      en: 'Node.js · APIs',
-      fa: 'Node.js · API'
-    },
-    badge: {
-      en: '1×/week · 2h',
-      fa: '۱×/هفته · ۲ ساعت'
+    icon: 'W',
+    image: {
+      src: './images/courses/professional-web.svg',
+      alt: {
+        fa: 'کاور دوره طراحی سایت حرفه ای',
+        en: 'Professional website design course cover'
+      }
     },
     title: {
-      en: 'Backend Design (Node.js/Express)',
-      fa: 'طراحی بک‌اند: Node.js/Express'
+      fa: 'دوره طراحی سایت حرفه‌ای',
+      en: 'Professional Website Design'
+    },
+    duration: {
+      fa: '7 هفته',
+      en: '7 weeks'
+    },
+    level: {
+      fa: 'پایه و متوسط',
+      en: 'Foundation to intermediate'
+    },
+    price: {
+      fa: '4,000,000 تومان',
+      en: '4,000,000 toman'
     },
     summary: {
-      en: 'Design lightweight APIs and automation that power modern marketing and course experiences.',
-      fa: 'APIهای سبک و اتوماسیون‌هایی طراحی کنید که تجربه‌های مدرن وب و دوره‌ها را پشتیبانی می‌کنند.'
+      fa: 'توانایی ساخت سایت واقعی و قابل انتشار',
+      en: 'Build real websites ready to publish.'
     },
-    outcomes: {
-      en: [
-        'Model content for landing pages and course catalogs',
-        'Build Express APIs with auth and rate-limiting guards',
-        'Automate Telegram and CRM webhooks securely',
-        'Deploy Node services with logging and uptime checks'
-      ],
-      fa: [
-        'مدل‌سازی محتوا برای لندینگ‌پیج‌ها و کاتالوگ دوره‌ها',
-        'ساخت APIهای Express با احراز هویت و rate limiting',
-        'اتوماسیون امن وب‌هوک‌های تلگرام و CRM',
-        'دیپلوی سرویس‌های Node با لاگ و مانیتورینگ آپتایم'
-      ]
+    outcome: {
+      fa: 'طراحی سایت‌های کامل واکنش‌گرا',
+      en: 'Complete responsive website design'
+    },
+    audience: {
+      fa: 'علاقه‌مندان به طراحی وب و فریلنسری',
+      en: 'Students interested in web design and freelancing'
+    }
+  },
+  {
+    id: 'full-stack',
+    difficulty: 'advanced',
+    icon: 'FS',
+    image: {
+      src: './images/courses/full-stack.svg',
+      alt: {
+        fa: 'کاور دوره توسعه دهنده فول استک',
+        en: 'Full-stack course cover'
+      }
+    },
+    title: {
+      fa: 'دوره توسعه دهنده فول استک',
+      en: 'Full-Stack Developer Course'
+    },
+    duration: {
+      fa: '10 هفته',
+      en: '10 weeks'
+    },
+    level: {
+      fa: 'حرفه‌ای',
+      en: 'Professional'
+    },
+    price: {
+      fa: '8,000,000 تومان',
+      en: '8,000,000 toman'
+    },
+    summary: {
+      fa: 'پورتفولیو شغلی کامل',
+      en: 'Create a complete job-ready portfolio.'
+    },
+    outcome: {
+      fa: 'توسعه Front-End و Back-End در پروژه واقعی',
+      en: 'Front-end and back-end development in a real project'
+    },
+    audience: {
+      fa: 'برنامه‌نویسان آماده ورود به بازار کار',
+      en: 'Developers preparing to enter the job market'
+    }
+  },
+  {
+    id: '3d-website',
+    difficulty: 'advanced',
+    icon: '3W',
+    image: {
+      src: './images/courses/3d-website.svg',
+      alt: {
+        fa: 'کاور دوره طراحی سایت سه بعدی',
+        en: '3D website design course cover'
+      }
+    },
+    title: {
+      fa: 'دوره طراحی سایت سه بعدی',
+      en: '3D Website Design'
+    },
+    duration: {
+      fa: '7 هفته',
+      en: '7 weeks'
+    },
+    level: {
+      fa: 'متوسط و حرفه‌ای',
+      en: 'Intermediate to professional'
+    },
+    price: {
+      fa: '5,000,000 تومان',
+      en: '5,000,000 toman'
+    },
+    summary: {
+      fa: 'توانایی ساخت سایت 3D و قابل انتشار',
+      en: 'Build publishable 3D websites.'
+    },
+    outcome: {
+      fa: 'طراحی وب‌سایت‌های سه بعدی و تعاملی',
+      en: 'Interactive 3D website design'
+    },
+    audience: {
+      fa: 'طراحان وب و علاقه‌مندان تکنولوژی‌های نو',
+      en: 'Web designers and new-technology enthusiasts'
+    }
+  },
+  {
+    id: 'startup-product',
+    difficulty: 'advanced',
+    icon: 'P',
+    image: {
+      src: './images/courses/startup-product.svg',
+      alt: {
+        fa: 'کاور دوره ساخت محصول و استارتاپ',
+        en: 'Product and startup course cover'
+      }
+    },
+    title: {
+      fa: 'ساخت محصول و استارتاپ',
+      en: 'Product and Startup Building'
+    },
+    duration: {
+      fa: '6 هفته',
+      en: '6 weeks'
+    },
+    level: {
+      fa: 'حرفه‌ای',
+      en: 'Professional'
+    },
+    price: {
+      fa: '4,000,000 تومان',
+      en: '4,000,000 toman'
+    },
+    summary: {
+      fa: 'ساخت یک محصول واقعی',
+      en: 'Build a real digital product.'
+    },
+    outcome: {
+      fa: 'ایده‌پردازی، طراحی و راه‌اندازی محصول',
+      en: 'Ideation, design, and product launch'
+    },
+    audience: {
+      fa: 'کارآفرینان و علاقه‌مندان به کسب‌وکار دیجیتال',
+      en: 'Entrepreneurs and digital business students'
+    }
+  },
+  {
+    id: 'cooci-system',
+    difficulty: 'advanced',
+    icon: 'CL',
+    image: {
+      src: './images/courses/cooci-system.svg',
+      alt: {
+        fa: 'کاور دوره سیستم سازی',
+        en: 'Systems design course cover'
+      }
+    },
+    title: {
+      fa: 'سیستم سازی (cooci Level)',
+      en: 'Systems Design (cooci Level)'
+    },
+    duration: {
+      fa: '10 هفته',
+      en: '10 weeks'
+    },
+    level: {
+      fa: 'پیشرفته',
+      en: 'Advanced'
+    },
+    price: {
+      fa: '12,000,000 تومان',
+      en: '12,000,000 toman'
+    },
+    summary: {
+      fa: 'طراحی و بهینه‌سازی سیستم‌ها',
+      en: 'Design and optimize advanced systems.'
+    },
+    outcome: {
+      fa: 'ساخت سیستم‌های پیشرفته و مقیاس‌پذیر',
+      en: 'Advanced, scalable system building'
+    },
+    audience: {
+      fa: 'برنامه‌نویسان حرفه‌ای و علاقه‌مندان سیستم‌سازی',
+      en: 'Professional developers and systems builders'
+    }
+  },
+  {
+    id: 'unity-game-dev',
+    difficulty: 'advanced',
+    icon: 'U',
+    image: {
+      src: './images/courses/unity-game-dev.svg',
+      alt: {
+        fa: 'کاور دوره بازی سازی با یونیتی',
+        en: 'Unity game development course cover'
+      }
+    },
+    title: {
+      fa: 'دوره جامع بازی سازی با UNITY',
+      en: 'Complete Game Development with Unity'
+    },
+    duration: {
+      fa: '20 هفته',
+      en: '20 weeks'
+    },
+    level: {
+      fa: 'پیشرفته',
+      en: 'Advanced'
+    },
+    price: {
+      fa: '19,000,000 تومان',
+      en: '19,000,000 toman'
+    },
+    summary: {
+      fa: 'مهارت‌های بازی‌سازی واقعی قابل ورود به بازار کار',
+      en: 'Real game-development skills for entering the market.'
+    },
+    outcome: {
+      fa: 'ساخت بازی کامل و آماده انتشار',
+      en: 'A complete game ready for release'
+    },
+    audience: {
+      fa: 'علاقه‌مندان جدی بازی‌سازی و ورود به صنعت گیم',
+      en: 'Serious game-development students entering the game industry'
     }
   }
 ];

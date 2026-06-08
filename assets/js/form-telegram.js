@@ -1,55 +1,14 @@
 const IRAN_PHONE = /^09\d{9}$/;
 const INTL_PHONE = /^[+0-9 ()-]{8,}$/;
-const TELEGRAM_LIMIT = 4096;
-const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const DEFAULT_ENDPOINT = '/api/apply';
 
-const chunkText = (text, limit = TELEGRAM_LIMIT) => {
-  if (text.length <= limit) return [text];
-  const output = [];
-  let start = 0;
-  while (start < text.length) {
-    output.push(text.slice(start, start + limit));
-    start += limit;
-  }
-  return output;
-};
-
-const buildMessages = (payload) => {
-  const json = JSON.stringify(payload, null, 2);
-  const parts = chunkText(json, TELEGRAM_LIMIT - 12); // reserve space for labels
-  if (parts.length <= 1) return [json];
-  return parts.map((part, index) => `(${index + 1}/${parts.length})\n${part}`);
-};
-
-const sendViaProxy = async (messages) => {
-  const url = window.TELEGRAM_PROXY_URL;
-  const chatId = window.TELEGRAM_CHAT_ID;
-  if (!url) throw new Error('Missing proxy URL');
-  if (!chatId) throw new Error('Missing chat id');
-
-  for (const text of messages) {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text })
-    });
-    if (!res.ok) throw new Error(`Proxy error ${res.status}`);
-  }
-};
-
-const sendDirect = async (messages) => {
-  const chatId = window.TELEGRAM_CHAT_ID;
-  const token = window.TELEGRAM_BOT_TOKEN;
-  if (!chatId || !token) throw new Error('Missing Telegram credentials');
-
-  for (const text of messages) {
-    const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: chatId, text })
-    });
-    if (!res.ok) throw new Error(`Telegram error ${res.status}`);
-  }
+const cleanText = (value, max = 200) => {
+  return String(value ?? '')
+    .replace(/[<>]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .slice(0, max);
 };
 
 const toggleHelper = (id, show) => {
@@ -72,36 +31,52 @@ const toggleSubmitting = (form, state) => {
 
 const serializeForm = (form) => {
   const data = new FormData(form);
+  const selectedText = (name) => {
+    const field = form.elements[name];
+    if (!field?.value) return '';
+    return cleanText(field.selectedOptions?.[0]?.textContent, 120);
+  };
   return {
-    fullName: (data.get('fullName') || '').toString().trim(),
-    phone: (data.get('phone') || '').toString().trim(),
-    course: (data.get('course') || '').toString(),
-    note: (data.get('note') || '').toString().trim()
+    fullName: cleanText(data.get('fullName'), 120),
+    phone: cleanText(data.get('phone'), 40),
+    email: cleanText(data.get('email'), 120),
+    age: cleanText(data.get('age'), 3),
+    course: selectedText('course'),
+    courseId: cleanText(data.get('course'), 80),
+    level: selectedText('level'),
+    preferredContact: selectedText('preferredContact'),
+    message: cleanText(data.get('message'), 1000),
+    website: cleanText(data.get('website'), 120)
   };
 };
 
 const validPhone = (value) => IRAN_PHONE.test(value) || INTL_PHONE.test(value);
+const validEmail = (value) => !value || EMAIL.test(value);
 
 const validate = (form, data) => {
   const okName = data.fullName.length >= 3;
   const okPhone = validPhone(data.phone);
-  const okCourse = Boolean(data.course);
-  const okNote = data.note.length === 0 || data.note.length >= 10;
+  const okEmail = validEmail(data.email);
+  const okCourse = Boolean(data.courseId);
+  const okAge = !data.age || (Number(data.age) >= 6 && Number(data.age) <= 99);
   const consent = form.querySelector('#consent')?.checked ?? false;
+  const isSpam = Boolean(data.website);
 
   toggleHelper('err-fullName', !okName);
   toggleHelper('err-phone', !okPhone);
+  toggleHelper('err-email', !okEmail);
   toggleHelper('err-course', !okCourse);
-  toggleHelper('err-note', !okNote && data.note.length > 0);
+  toggleHelper('err-age', !okAge);
   const consentHelp = document.getElementById('consentHelp');
   consentHelp?.classList.toggle('show', !consent);
 
   form.fullName?.setAttribute('aria-invalid', okName ? 'false' : 'true');
   form.phone?.setAttribute('aria-invalid', okPhone ? 'false' : 'true');
+  form.email?.setAttribute('aria-invalid', okEmail ? 'false' : 'true');
   form.course?.setAttribute('aria-invalid', okCourse ? 'false' : 'true');
-  form.note?.setAttribute('aria-invalid', okNote ? 'false' : 'true');
+  form.age?.setAttribute('aria-invalid', okAge ? 'false' : 'true');
 
-  if (!(okName && okPhone && okCourse && okNote && consent)) {
+  if (!(okName && okPhone && okEmail && okCourse && okAge && consent) || isSpam) {
     const firstInvalid = form.querySelector('[aria-invalid="true"], #consent:not(:checked)');
     firstInvalid?.focus({ preventScroll: false });
     return false;
@@ -109,28 +84,19 @@ const validate = (form, data) => {
   return true;
 };
 
-const buildPayload = (data) => {
-  const params = new URLSearchParams(window.location.search);
-  const utm = UTM_KEYS.reduce((acc, key) => {
-    acc[key] = params.get(key) ?? '';
-    return acc;
-  }, {});
-
-  return {
-    type: 'lead',
-    academy: 'CoociDev Academy',
-    program: 'Learn_Web',
-    ts: new Date().toISOString(),
-    page: window.location.href,
-    lang: document.documentElement.lang || 'en',
-    data,
-    utm,
-    client: {
-      ua: navigator.userAgent,
-      viewport: { w: window.innerWidth, h: window.innerHeight }
-    }
-  };
-};
+const buildPayload = (data) => ({
+  fullName: data.fullName,
+  phone: data.phone,
+  email: data.email,
+  age: data.age,
+  course: data.course,
+  courseId: data.courseId,
+  level: data.level,
+  preferredContact: data.preferredContact,
+  message: data.message,
+  source: 'CoociDev Academy Landing',
+  submittedAt: new Date().toISOString()
+});
 
 export function initFormTelegram() {
   const form = document.getElementById('lead-form');
@@ -147,26 +113,22 @@ export function initFormTelegram() {
     const data = serializeForm(form);
     if (!validate(form, data)) return;
 
+    const endpoint = window.COOci_APPLY_ENDPOINT || DEFAULT_ENDPOINT;
     const payload = buildPayload(data);
-    const messages = buildMessages(payload);
 
     toggleSubmitting(form, true);
     try {
-      if (window.TELEGRAM_PROXY_URL) {
-        try {
-          await sendViaProxy(messages);
-        } catch (proxyError) {
-          console.warn('[form] proxy error, attempting direct send', proxyError);
-          await sendDirect(messages);
-        }
-      } else {
-        await sendDirect(messages);
-      }
+      const res = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error(`Apply endpoint error ${res.status}`);
       form.reset();
       toggleStatus(okBanner, true);
       toggleStatus(failBanner, false);
     } catch (error) {
-      console.error('[form] telegram error', error);
+      console.error('[form] application error', error);
       toggleStatus(failBanner, true);
     } finally {
       toggleSubmitting(form, false);

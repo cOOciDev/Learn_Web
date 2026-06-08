@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" data-theme="dark" data-accent="ocean">
+<html lang="fa" dir="rtl" data-theme="dark" data-accent="ocean">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <title data-i18n="meta.title">CoociDev Learn_Web | Modern Web Design Academy</title>
-  <meta name="description" content="Learn_Web is CoociDev Academy's modern web design program with live mentorship, bilingual content, and career matching." data-i18n-attr="content:meta.description" />
-  <meta property="og:title" content="CoociDev Learn_Web | Modern Web Design Academy" data-i18n-attr="content:meta.ogTitle" />
-  <meta property="og:description" content="Join CoociDev Academy's Learn_Web cohorts to master responsive, 3D, and production-ready web design with hiring support." data-i18n-attr="content:meta.ogDesc" />
+  <title data-i18n="meta.title">COOci Dev Academy | ثبت نام دوره های تخصصی</title>
+  <meta name="description" content="ثبت نام دوره های تخصصی COOci Dev Academy برای برنامه نویسی، طراحی وب، بازی سازی، سه بعدی، فول استک و استارتاپ." data-i18n-attr="content:meta.description" />
+  <meta property="og:title" content="COOci Dev Academy | ثبت نام دوره های تخصصی" data-i18n-attr="content:meta.ogTitle" />
+  <meta property="og:description" content="مسیر یادگیری پروژه محور از پایه تا حرفه ای با مشاوره رایگان و ثبت نام آنلاین." data-i18n-attr="content:meta.ogDesc" />
   <meta name="theme-color" content="#070b1a" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="../assets/css/fonts.css" />
   <link rel="stylesheet" href="../assets/css/tokens.css" />
   <link rel="stylesheet" href="../assets/css/themes.light.css" />
@@ -24,60 +21,47 @@
   <link rel="stylesheet" href="../assets/css/components.cards.css" />
   <link rel="stylesheet" href="../assets/css/sections.header.css" />
   <link rel="stylesheet" href="../assets/css/sections.hero.css" />
-  <link rel="stylesheet" href="../assets/css/sections.logos.css" />
+  <link rel="stylesheet" href="../assets/css/sections.video.css" />
   <link rel="stylesheet" href="../assets/css/sections.work.css" />
   <link rel="stylesheet" href="../assets/css/sections.syllabus.css" />
   <link rel="stylesheet" href="../assets/css/sections.courses.css" />
-  <link rel="stylesheet" href="../assets/css/sections.jobs.css" />
-  <link rel="stylesheet" href="../assets/css/sections.testimonials.css" />
   <link rel="stylesheet" href="../assets/css/sections.form.css" />
   <link rel="stylesheet" href="../assets/css/sections.footer.css" />
   <link rel="stylesheet" href="../assets/css/utilities.css" />
 </head>
-<body class="lang-en">
+<body class="lang-fa">
   <div id="scrollbar" aria-hidden="true"></div>
 
   <header id="top">
     <div class="container site-header">
-      <a class="brand" href="#hero" aria-label="CoociDev Academy">
-        <span class="brand-mark">
-          <img src="./images/logo.svg" alt="" width="28" height="28" loading="lazy" />
-        </span>
-        <span class="brand-name" data-i18n="header.brand">CoociDev Academy</span>
-        <span class="brand-pill" data-i18n="header.tagline">Learn_Web Program</span>
+      <a class="brand" href="#hero" aria-label="COOci Dev Academy">
+        <span class="brand-mark"><img src="./images/logo.svg" alt="" width="28" height="28" loading="lazy" /></span>
+        <!-- <span class="brand-name" data-i18n="header.brand">COOci Dev Academy</span> -->
+        <span class="brand-pill" data-i18n="header.tagline">مسیر مهارت و درآمد</span>
       </a>
-
       <nav class="main-nav" aria-label="Primary">
-        <a class="nav-link" href="#hero" data-i18n="header.overview">Overview</a>
-        <a class="nav-link" href="#work" data-i18n="header.work">Results</a>
-        <a class="nav-link" href="#syllabus" data-i18n="header.syllabus">Curriculum</a>
-        <a class="nav-link" href="#courses" data-i18n="header.courses">Courses</a>
-        <a class="nav-link" href="#jobs" data-i18n="header.jobs">Job Market</a>
-        <a class="nav-link" href="#testimonials" data-i18n="header.testimonials">Testimonials</a>
-        <a class="nav-link" href="#contact" data-i18n="header.contact">Apply</a>
+        <a class="nav-link" href="#why" data-i18n="header.why">چرا کوکی؟</a>
+        <a class="nav-link" href="#courses" data-i18n="header.courses">دوره ها</a>
+        <a class="nav-link" href="#path" data-i18n="header.path">مسیر رشد</a>
+        <a class="nav-link" href="#benefits" data-i18n="header.benefits">مزایا</a>
+        <a class="nav-link" href="#faq" data-i18n="header.faq">سوالات</a>
+        <a class="nav-link" href="#contact" data-i18n="header.contact">ثبت نام</a>
       </nav>
-
       <div class="header-actions" role="group" aria-label="Site controls">
-        <button id="langToggle" class="btn-ghost btn-compact" type="button" aria-live="polite" data-i18n="header.langToggle">Fa / En</button>
-        <button id="themeToggle" class="btn-ghost btn-compact" type="button" aria-label="Toggle theme" title="Toggle theme">
-          <span id="themeIcon" aria-hidden="true">&#9728;</span>
-        </button>
-        <button id="menuBtn" class="btn-ghost btn-compact" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu">
-          <span aria-hidden="true">&#9776;</span>
-        </button>
+        <button id="langToggle" class="btn-ghost btn-compact" type="button" aria-live="polite" data-i18n="header.langToggle">EN / FA</button>
+        <button id="themeToggle" class="btn-ghost btn-compact" type="button" aria-label="Toggle theme" title="Toggle theme"><span id="themeIcon" aria-hidden="true">&#9728;</span></button>
+        <button id="menuBtn" class="btn-ghost btn-compact" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu"><span aria-hidden="true">&#9776;</span></button>
       </div>
     </div>
-
     <div id="mobileMenu" class="container hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="menuBtn">
       <div class="mobile-nav glass">
         <nav>
-          <a class="btn-ghost" href="#hero" data-i18n="header.overview">Overview</a>
-          <a class="btn-ghost" href="#work" data-i18n="header.work">Results</a>
-          <a class="btn-ghost" href="#syllabus" data-i18n="header.syllabus">Curriculum</a>
-          <a class="btn-ghost" href="#courses" data-i18n="header.courses">Courses</a>
-          <a class="btn-ghost" href="#jobs" data-i18n="header.jobs">Job Market</a>
-          <a class="btn-ghost" href="#testimonials" data-i18n="header.testimonials">Testimonials</a>
-          <a class="btn-ghost" href="#contact" data-i18n="header.contact">Apply</a>
+          <a class="btn-ghost" href="#why" data-i18n="header.why">چرا کوکی؟</a>
+          <a class="btn-ghost" href="#courses" data-i18n="header.courses">دوره ها</a>
+          <a class="btn-ghost" href="#path" data-i18n="header.path">مسیر رشد</a>
+          <a class="btn-ghost" href="#benefits" data-i18n="header.benefits">مزایا</a>
+          <a class="btn-ghost" href="#faq" data-i18n="header.faq">سوالات</a>
+          <a class="btn-ghost" href="#contact" data-i18n="header.contact">ثبت نام</a>
         </nav>
       </div>
     </div>
@@ -85,279 +69,149 @@
 
   <main class="page-shell">
     <section id="hero" class="hero section-block" data-reveal="up">
-      <div class="hero-canvas" aria-hidden="true">
-        <canvas id="hero3d"></canvas>
-      </div>
+      <div class="hero-canvas" aria-hidden="true"><canvas id="hero3d"></canvas></div>
       <div class="hero-inner container">
         <div class="hero-copy">
           <div class="pill-group" aria-hidden="true">
-            <span class="pill" data-i18n="hero.pillCohort">Live cohorts</span>
-            <span class="pill" data-i18n="hero.pillPlacement">Job-matching</span>
-            <span class="pill" data-i18n="hero.pillHybrid">Hybrid / Remote</span>
+            <span class="pill" data-i18n="hero.pillProject">پروژه محور</span>
+            <span class="pill" data-i18n="hero.pillMentor">منتور حرفه ای</span>
+            <span class="pill" data-i18n="hero.pillMarket">آماده بازار کار</span>
           </div>
-          <h1 data-i18n="hero.title">Launch a modern web design career in 12 weeks.</h1>
-          <p data-i18n="hero.subtitle">
-            CoociDev Academy's Learn_Web program blends immersive web-design courses, live mentorship, and a hiring network to get you hired as a high-impact web designer.
-          </p>
+          <h1 data-i18n="hero.title">مسیر رشد و موفقیت شما</h1>
+          <p class="hero-kicker" data-i18n="hero.subtitle">یاد بگیر، بساز، درآمد داشته باش</p>
+          <p data-i18n="hero.support">از مبتدی تا حرفه‌ای، همراه شما در هر قدم</p>
           <div class="hero-actions">
-            <a class="btn" href="#courses" data-i18n="hero.ctaPrimary">Browse Courses</a>
-            <a class="btn-ghost" href="#jobs" data-i18n="hero.ctaSecondary">See job openings</a>
+            <a class="btn" href="#contact" data-i18n="hero.ctaPrimary">ثبت نام و مشاوره رایگان</a>
+            <a class="btn-ghost" href="#courses" data-i18n="hero.ctaSecondary">مشاهده دوره ها</a>
           </div>
-          <p class="hero-note" data-i18n="hero.note">Powered by CoociDev mentors and trusted by startups building bilingual, RTL-ready experiences.</p>
+          <p class="hero-note" data-i18n="hero.note">COOci Dev Academy برای دانش آموزان، دانشجویان و والدینی ساخته شده که یک مسیر روشن و قابل پیگیری می خواهند.</p>
         </div>
       </div>
     </section>
 
-    <section id="logos" class="logos container" data-reveal="up">
-      <div class="logos-head">
-        <p class="eyebrow" data-i18n="logos.eyebrow">Hiring partners</p>
-        <p class="logos-copy" data-i18n="logos.copy">Learn_Web graduates from CoociDev Academy ship UI systems for regional startups, SaaS teams, and global agencies.</p>
+    <section id="intro-video" class="container section-block academy-video" data-reveal="up">
+      <div class="section-head stack">
+        <p class="eyebrow" data-i18n="video.eyebrow">ویدیو معرفی</p>
+        <h2 data-i18n="video.title">داخل مسیر یادگیری COOci Dev Academy را ببینید.</h2>
+        <p class="section-sub" data-i18n="video.subtitle">یک نگاه کوتاه به فضای دوره‌ها، پروژه‌ها و مسیر رشد دانشجوها.</p>
       </div>
-      <ul class="logo-line" aria-label="Partner logos">
-        <li>NeonStack</li>
-        <li>Atlas Labs</li>
-        <li>Hyperline</li>
-        <li>Vibe Studio</li>
-        <li>NextGate</li>
-        <li>FrameWave</li>
-      </ul>
+      <div class="video-shell">
+        <video controls preload="metadata" poster="./images/video-poster.svg" data-video-src="./videos/academy-intro.mp4" data-i18n-attr="aria-label:video.aria"></video>
+      </div>
     </section>
 
-    <section id="work" class="container section-block" data-reveal="up">
+    <section id="why" class="container section-block" data-reveal="up">
       <div class="section-head stack">
-        <p class="eyebrow" data-i18n="work.eyebrow">Outcomes</p>
-        <h2 data-i18n="work.title">Craft, test, and ship production-grade experiences.</h2>
-        <p class="section-sub" data-i18n="work.subtitle">Every Learn_Web cohort delivers live projects with measurable results and cross-functional collaboration.</p>
+        <p class="eyebrow" data-i18n="why.eyebrow">چرا COOci Dev</p>
+        <h2 data-i18n="why.title">آموزش واقعی برای ساختن نمونه کار واقعی.</h2>
+        <p class="section-sub" data-i18n="why.subtitle">تمرکز آکادمی روی یادگیری مرحله به مرحله، پروژه های قابل ارائه و مشاوره برای انتخاب مسیر درست است.</p>
       </div>
       <div class="work-grid">
-        <article class="card" data-reveal="up">
-          <h3 data-i18n="work.cards.0.title">Responsive Design Systems</h3>
-          <p data-i18n="work.cards.0.body">Ship design tokens, UI kits, and multi-brand components that render flawlessly across languages.</p>
-          <ul>
-            <li data-i18n="work.cards.0.points.0">Fluid typography and RTL-ready grids</li>
-            <li data-i18n="work.cards.0.points.1">Design-to-code handoff with live Storybook</li>
-            <li data-i18n="work.cards.0.points.2">Performance budgets and accessibility</li>
-          </ul>
-        </article>
-        <article class="card" data-reveal="up">
-          <h3 data-i18n="work.cards.1.title">Conversion-first Landing Pages</h3>
-          <p data-i18n="work.cards.1.body">Pair UX research with animation systems to boost signups and in-product activation.</p>
-          <ul>
-            <li data-i18n="work.cards.1.points.0">UX audits and microcopy testing</li>
-            <li data-i18n="work.cards.1.points.1">3D hero and motion guidelines</li>
-            <li data-i18n="work.cards.1.points.2">Analytics setup with clear KPIs</li>
-          </ul>
-        </article>
-        <article class="card" data-reveal="up">
-          <h3 data-i18n="work.cards.2.title">Real-world Collaboration</h3>
-          <p data-i18n="work.cards.2.body">Practice dev handoff, async rituals, and stakeholder presentations that mirror modern teams.</p>
-          <ul>
-            <li data-i18n="work.cards.2.points.0">Weekly critiques with design leads</li>
-            <li data-i18n="work.cards.2.points.1">Paired implementation with engineers</li>
-            <li data-i18n="work.cards.2.points.2">Hiring day with portfolio challenge</li>
-          </ul>
-        </article>
+        <article class="card" data-reveal="up"><h3 data-i18n="why.cards.0.title">مسیر شخصی سازی شده</h3><p data-i18n="why.cards.0.body">از شروع سریع تا فول استک، بازی سازی، 3D و استارتاپ، مسیر مناسب سطح و هدف شما انتخاب می شود.</p></article>
+        <article class="card" data-reveal="up"><h3 data-i18n="why.cards.1.title">تمرین با خروجی قابل نمایش</h3><p data-i18n="why.cards.1.body">هر دوره با پروژه، نمونه کار یا محصولی تمام می شود که می توانید در رزومه و ارائه های خود استفاده کنید.</p></article>
+        <article class="card" data-reveal="up"><h3 data-i18n="why.cards.2.title">پشتیبانی خانواده و دانشجو</h3><p data-i18n="why.cards.2.body">مشاور آموزشی مسیر پیشرفت، سطح فعلی و انتخاب دوره را برای دانشجو و والدین شفاف می کند.</p></article>
       </div>
-    </section>
-
-    <section id="syllabus" class="container section-block" data-reveal="up">
-      <div class="section-head stack">
-        <p class="eyebrow" data-i18n="syllabus.eyebrow">Curriculum map</p>
-        <h2 data-i18n="syllabus.title">Six modules blended across design, code, and strategy.</h2>
-        <p class="section-sub" data-i18n="syllabus.subtitle">CoociDev Learn_Web is built for designers moving into hybrid UI/front-end roles.</p>
-      </div>
-      <ol class="syllabus-list">
-        <li data-i18n="syllabus.items.0">Foundations: research, UX flows, accessibility, HTML/CSS baseline.</li>
-        <li data-i18n="syllabus.items.1">Systems thinking: tokens, grids, responsive typography, component APIs.</li>
-        <li data-i18n="syllabus.items.2">Modern front-end: semantic HTML, CSS architecture, Three.js integration.</li>
-        <li data-i18n="syllabus.items.3">Motion & 3D: micro-interactions, reduced motion patterns, performance.</li>
-        <li data-i18n="syllabus.items.4">Shipping & SEO: audits, Lighthouse, content ops, multi-lingual support.</li>
-        <li data-i18n="syllabus.items.5">Career studio: portfolio review, interview loops, offer negotiation.</li>
-      </ol>
     </section>
 
     <section id="courses" class="container section-block" data-reveal="up">
       <div class="section-head stack">
-        <p class="eyebrow" data-i18n="courses.eyebrow">Courses</p>
-        <h2 data-i18n="courses.title">Pick the web-design sprint that fits your goals.</h2>
-        <p class="section-sub" data-i18n="courses.subtitle">Each Learn_Web cohort runs live with CoociDev mentors, English/فارسی materials, and project-based feedback.</p>
+        <p class="eyebrow" data-i18n="courses.eyebrow">دوره ها</p>
+        <h2 data-i18n="courses.title">از اولین پروژه تا مهارت حرفه ای، دوره مناسب خود را انتخاب کنید.</h2>
+        <p class="section-sub" data-i18n="courses.subtitle">تمام دوره ها با رویکرد پروژه محور، تمرین عملی و مسیر مشخص برای ساخت نمونه کار طراحی شده اند.</p>
       </div>
       <div class="courses-shell">
-        <div class="course-preamble">
-          <p data-i18n="courses.note">Tap “Enroll” to populate the application form below. Seats unlock weekly.</p>
-        </div>
+        <div class="course-preamble"><p data-i18n="courses.note">روی ثبت نام هر دوره بزنید تا فرم پایین صفحه با همان دوره آماده شود.</p></div>
         <div class="courses-grid" data-courses-list aria-live="polite"></div>
       </div>
     </section>
 
-    <section id="jobs" class="container section-block" data-reveal="up">
+    <section id="path" class="container section-block" data-reveal="up">
       <div class="section-head stack">
-        <p class="eyebrow" data-i18n="jobs.eyebrow">Job market</p>
-        <h2 data-i18n="jobs.title">Roles hiring right now through CoociDev Learn_Web.</h2>
-        <p class="section-sub" data-i18n="jobs.subtitle">Filter opportunities by seniority or work style. Matching calls focus on your selected track.</p>
+        <p class="eyebrow" data-i18n="path.eyebrow">مسیر رشد</p>
+        <h2 data-i18n="path.title">یک نقشه ساده برای حرکت از علاقه تا درآمد.</h2>
+        <p class="section-sub" data-i18n="path.subtitle">در جلسه مشاوره، سطح فعلی شما مشخص می شود و دوره مناسب برای قدم بعدی پیشنهاد می شود.</p>
       </div>
-      <div class="jobs-toolbar">
-        <div class="filter-group" role="group" aria-label="Filter by seniority" data-filter-group="seniority">
-          <button type="button" class="pill active" data-filter="all" data-i18n="jobs.filters.seniority.all">All levels</button>
-          <button type="button" class="pill" data-filter="junior" data-i18n="jobs.filters.seniority.junior">Junior</button>
-          <button type="button" class="pill" data-filter="mid" data-i18n="jobs.filters.seniority.mid">Mid</button>
-          <button type="button" class="pill" data-filter="senior" data-i18n="jobs.filters.seniority.senior">Senior</button>
-        </div>
-        <div class="filter-group" role="group" aria-label="Filter by work type" data-filter-group="workType">
-          <button type="button" class="pill active" data-filter="all" data-i18n="jobs.filters.workType.all">All types</button>
-          <button type="button" class="pill" data-filter="remote" data-i18n="jobs.filters.workType.remote">Remote</button>
-          <button type="button" class="pill" data-filter="hybrid" data-i18n="jobs.filters.workType.hybrid">Hybrid</button>
-          <button type="button" class="pill" data-filter="onsite" data-i18n="jobs.filters.workType.onsite">On-site</button>
-        </div>
-      </div>
-      <div class="jobs-grid" data-jobs-list aria-live="polite"></div>
+      <ol class="syllabus-list">
+        <li data-i18n="path.items.0">شناخت علاقه، سن، زمان آزاد و هدف یادگیری.</li>
+        <li data-i18n="path.items.1">انتخاب دوره مناسب از سطح مقدماتی، متوسط یا پیشرفته.</li>
+        <li data-i18n="path.items.2">یادگیری مهارت ها با تمرین های کوتاه و پروژه های مرحله ای.</li>
+        <li data-i18n="path.items.3">ساخت خروجی قابل ارائه برای رزومه، نمونه کار یا محصول.</li>
+        <li data-i18n="path.items.4">دریافت بازخورد، اصلاح پروژه و آماده سازی برای مسیر بعدی.</li>
+      </ol>
     </section>
 
-    <section id="testimonials" class="container section-block" data-reveal="up">
+    <section id="benefits" class="container section-block" data-reveal="up">
       <div class="section-head stack">
-        <p class="eyebrow" data-i18n="testimonials.eyebrow">What alumni say</p>
-        <h2 data-i18n="testimonials.title">Career pivots, promotions, and remote offers.</h2>
-        <p class="section-sub" data-i18n="testimonials.subtitle">CoociDev Learn_Web alumni design for fintech, e-commerce, and creative studios across MENA and Europe.</p>
+        <p class="eyebrow" data-i18n="benefits.eyebrow">مزایا برای دانشجو و والدین</p>
+        <h2 data-i18n="benefits.title">شفاف، پروژه محور و قابل پیگیری.</h2>
+        <p class="section-sub" data-i18n="benefits.subtitle">دوره ها برای رشد مهارت واقعی، اعتماد به نفس و تصمیم گیری بهتر درباره آینده دیجیتال طراحی شده اند.</p>
       </div>
-      <div class="testimonials-grid">
-        <article class="testimonial card">
-          <div class="testimonial-head">
-            <img src="./images/avatar-1.svg" alt="" width="48" height="48" loading="lazy" />
-            <div>
-              <strong data-i18n="testimonials.cards.0.name">Laleh Vahidi</strong>
-              <span data-i18n="testimonials.cards.0.role">Product Designer · Snapp!</span>
-            </div>
-          </div>
-          <p data-i18n="testimonials.cards.0.quote">The hybrid UI/front-end track unlocked my promotion to lead responsive projects in both Persian and English.</p>
-        </article>
-        <article class="testimonial card">
-          <div class="testimonial-head">
-            <img src="./images/avatar-2.svg" alt="" width="48" height="48" loading="lazy" />
-            <div>
-              <strong data-i18n="testimonials.cards.1.name">Kayvan Mehr</strong>
-              <span data-i18n="testimonials.cards.1.role">Frontend Engineer · Freelance</span>
-            </div>
-          </div>
-          <p data-i18n="testimonials.cards.1.quote">My mentor helped me target EU agencies and I signed a remote contract two weeks after demo day.</p>
-        </article>
-        <article class="testimonial card">
-          <div class="testimonial-head">
-            <img src="./images/avatar-3.svg" alt="" width="48" height="48" loading="lazy" />
-            <div>
-              <strong data-i18n="testimonials.cards.2.name">Nazanin Etemad</strong>
-              <span data-i18n="testimonials.cards.2.role">UX Designer · Divar</span>
-            </div>
-          </div>
-          <p data-i18n="testimonials.cards.2.quote">The 3D hero lab plus hiring support gave me confidence to collaborate with developers on production WebGL.</p>
-        </article>
+      <div class="work-grid">
+        <article class="card" data-reveal="up"><h3 data-i18n="benefits.items.0.title">مدرسین حرفه ای</h3><p data-i18n="benefits.items.0.body">آموزش توسط مدرسینی با تجربه واقعی بازار کار و پروژه های اجرایی.</p></article>
+        <article class="card" data-reveal="up"><h3 data-i18n="benefits.items.1.title">یادگیری پروژه محور</h3><p data-i18n="benefits.items.1.body">تمرکز روی ساختن، تمرین کردن و گرفتن خروجی قابل نمایش.</p></article>
+        <article class="card" data-reveal="up"><h3 data-i18n="benefits.items.2.title">مهارت های درآمدزا</h3><p data-i18n="benefits.items.2.body">برنامه نویسی، طراحی وب، بازی سازی و ساخت محصول با نگاه به بازار کار.</p></article>
+        <article class="card" data-reveal="up"><h3 data-i18n="benefits.items.3.title">پشتیبانی مسیر</h3><p data-i18n="benefits.items.3.body">همراهی و پاسخگویی در طول مسیر یادگیری و انتخاب قدم بعدی.</p></article>
+        <article class="card" data-reveal="up"><h3 data-i18n="benefits.items.4.title">مدرک پایان دوره</h3><p data-i18n="benefits.items.4.body">ارائه گواهی پایان دوره پس از تکمیل پروژه ها و تمرین ها.</p></article>
+        <article class="card" data-reveal="up"><h3 data-i18n="benefits.items.5.title">مسیر از پایه تا حرفه ای</h3><p data-i18n="benefits.items.5.body">دوره های پیوسته برای رشد آرام، قابل سنجش و هدفمند.</p></article>
       </div>
     </section>
 
     <section id="contact" class="container section-block" data-reveal="up">
       <div class="section-head stack">
-        <p class="eyebrow" data-i18n="contact.eyebrow">Apply now</p>
-        <h2 data-i18n="contact.title">Tell us how CoociDev Learn_Web can accelerate your next role.</h2>
-        <p class="section-sub" data-i18n="contact.subtitle">We reply within 24 hours. The form sends one secure Telegram message and nothing is stored.</p>
+        <p class="eyebrow" data-i18n="contact.eyebrow">ثبت نام</p>
+        <h2 data-i18n="contact.title">فرم درخواست مشاوره و ثبت نام</h2>
+        <p class="section-sub" data-i18n="contact.subtitle">درخواست شما به صورت امن برای مشاور آموزشی COOci Dev ارسال می شود.</p>
       </div>
       <form id="lead-form" novalidate data-reveal="up" data-scroll-target>
         <div class="form-grid">
-          <div class="form-field">
-            <label for="fullName" data-i18n="contact.fields.name.label">Full name</label>
-            <input id="fullName" name="fullName" type="text" required autocomplete="name" inputmode="text" data-i18n-attr="placeholder:contact.fields.name.placeholder" placeholder="e.g. Sara Rahimi" />
-            <p id="err-fullName" class="helper" data-i18n="contact.fields.name.helper">Add your full name (min. 3 characters).</p>
-          </div>
-
-          <div class="form-field">
-            <label for="phone" data-i18n="contact.fields.phone.label">Phone or WhatsApp</label>
-            <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" data-i18n-attr="placeholder:contact.fields.phone.placeholder" placeholder="+98 912 000 0000" />
-            <p id="err-phone" class="helper" data-i18n="contact.fields.phone.helper">Use an Iranian mobile (09xxxxxxxx) or international format.</p>
-          </div>
-
-          <div class="form-field">
-            <label for="course" data-i18n="contact.fields.course.label">Course of interest</label>
-            <select id="course" name="course" required data-i18n-attr="data-empty:contact.fields.course.empty">
-              <option value="" data-i18n="contact.fields.course.placeholder">Select a course</option>
-            </select>
-            <p id="err-course" class="helper" data-i18n="contact.fields.course.helper">Choose the course you want to enroll in.</p>
-          </div>
-
-          <div class="form-field full">
-            <label for="note" data-i18n="contact.fields.note.label">Context</label>
-            <textarea id="note" name="note" rows="4" data-i18n-attr="placeholder:contact.fields.note.placeholder" placeholder="Share goals, timeline, job interest, or portfolio link." minlength="10"></textarea>
-            <p id="err-note" class="helper" data-i18n="contact.fields.note.helper">Optional but helpful - minimum 10 characters if provided.</p>
-          </div>
+          <div class="form-field"><label for="fullName" data-i18n="contact.fields.name.label">نام و نام خانوادگی</label><input id="fullName" name="fullName" type="text" required minlength="3" autocomplete="name" data-i18n-attr="placeholder:contact.fields.name.placeholder" placeholder="مثلا سارا رحیمی" /><p id="err-fullName" class="helper" data-i18n="contact.fields.name.helper">نام کامل خود را وارد کنید.</p></div>
+          <div class="form-field"><label for="phone" data-i18n="contact.fields.phone.label">شماره تماس یا واتساپ</label><input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" data-i18n-attr="placeholder:contact.fields.phone.placeholder" placeholder="09120000000" /><p id="err-phone" class="helper" data-i18n="contact.fields.phone.helper">شماره تماس معتبر وارد کنید.</p></div>
+          <div class="form-field"><label for="email" data-i18n="contact.fields.email.label">ایمیل</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" data-i18n-attr="placeholder:contact.fields.email.placeholder" placeholder="name@example.com" /><p id="err-email" class="helper" data-i18n="contact.fields.email.helper">ایمیل معتبر وارد کنید.</p></div>
+          <div class="form-field"><label for="age" data-i18n="contact.fields.age.label">سن دانشجو</label><input id="age" name="age" type="number" min="6" max="99" inputmode="numeric" data-i18n-attr="placeholder:contact.fields.age.placeholder" placeholder="مثلا 16" /><p id="err-age" class="helper" data-i18n="contact.fields.age.helper">سن را بین 6 تا 99 وارد کنید.</p></div>
+          <div class="form-field"><label for="course" data-i18n="contact.fields.course.label">دوره مورد علاقه</label><select id="course" name="course" required data-i18n-attr="data-empty:contact.fields.course.empty"><option value="" data-i18n="contact.fields.course.placeholder">یک دوره انتخاب کنید</option></select><p id="err-course" class="helper" data-i18n="contact.fields.course.helper">دوره مورد نظر را انتخاب کنید.</p></div>
+          <div class="form-field"><label for="level" data-i18n="contact.fields.level.label">سطح فعلی شما</label><select id="level" name="level"><option value="" data-i18n="contact.fields.level.placeholder">نمی دانم</option><option value="beginner" data-i18n="contact.fields.level.options.0">مبتدی</option><option value="intermediate" data-i18n="contact.fields.level.options.1">متوسط</option><option value="professional" data-i18n="contact.fields.level.options.2">حرفه ای</option></select></div>
+          <div class="form-field"><label for="preferredContact" data-i18n="contact.fields.preferredContact.label">روش ارتباط ترجیحی</label><select id="preferredContact" name="preferredContact"><option value="" data-i18n="contact.fields.preferredContact.placeholder">انتخاب روش ارتباط</option><option value="phone" data-i18n="contact.fields.preferredContact.options.0">تماس تلفنی</option><option value="whatsapp" data-i18n="contact.fields.preferredContact.options.1">اپلیکیشن بله</option><option value="telegram" data-i18n="contact.fields.preferredContact.options.2">تلگرام</option><option value="sms" data-i18n="contact.fields.preferredContact.options.3">پیامک</option></select></div>
+          <div class="form-field full"><label for="message" data-i18n="contact.fields.message.label">توضیحات</label><textarea id="message" name="message" rows="4" maxlength="1000" data-i18n-attr="placeholder:contact.fields.message.placeholder" placeholder="هدف، سوال یا زمان مناسب تماس را بنویسید."></textarea></div>
         </div>
-
-        <div class="checkbox-field">
-          <input id="consent" type="checkbox" required aria-describedby="consentHelp" />
-          <label for="consent" data-i18n="contact.consent">I agree to receive course updates and job-matching details by message.</label>
-        </div>
-        <p id="consentHelp" class="helper" data-i18n="contact.consentHelper">Required so we can contact you about the cohort.</p>
-
-        <div class="form-actions">
-          <button class="btn submit-btn" type="submit" data-i18n="contact.submit">Submit application</button>
-        </div>
-
-        <p id="ok" class="form-status" role="status" data-i18n="contact.ok">Thank you! We just sent the message and will follow up shortly.</p>
-        <p id="fail" class="form-status" role="status" data-i18n="contact.fail">We could not send the message. Try again or reach us on Instagram.</p>
+        <div class="form-field hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off" /></div>
+        <div class="checkbox-field"><input id="consent" name="consent" type="checkbox" required aria-describedby="consentHelp" /><label for="consent" data-i18n="contact.consent">با تماس مشاور آموزشی COOci Dev موافقم.</label></div>
+        <p id="consentHelp" class="helper" data-i18n="contact.consentHelper">برای هماهنگی مشاوره لازم است.</p>
+        <div class="form-actions"><button class="btn submit-btn" type="submit" data-i18n="contact.submit">ارسال درخواست</button></div>
+        <p id="ok" class="form-status" role="status" data-i18n="contact.ok">درخواست شما با موفقیت ثبت شد. مشاور آموزشی COOci Dev به زودی با شما تماس می گیرد.</p>
+        <p id="fail" class="form-status" role="status" data-i18n="contact.fail">ارسال درخواست ناموفق بود. لطفا دوباره تلاش کنید یا از طریق اینستاگرام @coocidev پیام دهید.</p>
       </form>
+    </section>
+
+    <section id="faq" class="container section-block" data-reveal="up">
+      <div class="section-head stack"><p class="eyebrow" data-i18n="faq.eyebrow">سوالات پرتکرار</p><h2 data-i18n="faq.title">قبل از ثبت نام چه چیزهایی را باید بدانید؟</h2></div>
+      <div class="work-grid">
+        <article class="card" data-reveal="up"><h3 data-i18n="faq.items.0.q">برای شروع باید تجربه قبلی داشته باشم؟</h3><p data-i18n="faq.items.0.a">خیر. دوره های مقدماتی برای شروع از صفر طراحی شده اند و دوره های پیشرفته بعد از مشاوره پیشنهاد می شوند.</p></article>
+        <article class="card" data-reveal="up"><h3 data-i18n="faq.items.1.q">کدام دوره برای فرزند من مناسب است؟</h3><p data-i18n="faq.items.1.a">در فرم ثبت نام سن و هدف را وارد کنید تا مشاور آکادمی مسیر مناسب را پیشنهاد دهد.</p></article>
+        <article class="card" data-reveal="up"><h3 data-i18n="faq.items.2.q">بعد از ارسال فرم چه اتفاقی می افتد؟</h3><p data-i18n="faq.items.2.a">درخواست شما به مشاور آموزشی ارسال می شود و برای مشاوره، زمان بندی و ثبت نام نهایی با شما تماس گرفته می شود.</p></article>
+      </div>
     </section>
   </main>
 
   <footer id="footer">
     <div class="container footer-shell">
       <div class="footer-top">
-        <div class="brand-stack">
-          <div class="brand">
-            <span class="brand-mark" aria-hidden="true"></span>
-            <span data-i18n="footer.brandShort">CoociDev</span>
-          </div>
-          <p class="text-ink-2" data-i18n="footer.tagline">CoociDev Academy powers Learn_Web to turn designers into production-ready web experts with bilingual support.</p>
-        </div>
-
+        <div class="brand-stack"><div class="brand"><span class="brand-mark" aria-hidden="true"><img src="./images/logo.svg" alt="" width="28" height="28" loading="lazy" /></span><span data-i18n="footer.brandShort">COOci Dev</span></div><p class="text-ink-2" data-i18n="footer.tagline">COOci Dev Academy مسیر یادگیری مهارت های دیجیتال را از پایه تا حرفه ای همراهی می کند.</p></div>
         <div class="footer-links">
-          <a class="btn-ghost" href="#hero" data-i18n="footer.links.overview">Overview</a>
-          <a class="btn-ghost" href="#work" data-i18n="footer.links.work">Results</a>
-          <a class="btn-ghost" href="#syllabus" data-i18n="footer.links.syllabus">Curriculum</a>
-          <a class="btn-ghost" href="#courses" data-i18n="footer.links.courses">Courses</a>
-          <a class="btn-ghost" href="#jobs" data-i18n="footer.links.jobs">Job Market</a>
-          <a class="btn-ghost" href="#testimonials" data-i18n="footer.links.testimonials">Testimonials</a>
-          <a class="btn-ghost" href="#contact" data-i18n="footer.links.contact">Apply</a>
-          <a class="btn-ghost" href="mailto:hello@learnweb.academy" data-i18n="footer.links.email">Email us</a>
+          <a class="btn-ghost" href="#why" data-i18n="footer.links.why">چرا کوچی؟</a>
+          <a class="btn-ghost" href="#courses" data-i18n="footer.links.courses">دوره ها</a>
+          <a class="btn-ghost" href="#path" data-i18n="footer.links.path">مسیر رشد</a>
+          <a class="btn-ghost" href="#benefits" data-i18n="footer.links.benefits">مزایا</a>
+          <a class="btn-ghost" href="#contact" data-i18n="footer.links.contact">ثبت نام</a>
+          <!-- <a class="btn-ghost" href="https://coocidev.com" target="_blank" rel="noopener" data-i18n="footer.links.website">coocidev.com</a> -->
+          <a class="btn-ghost" href="https://www.instagram.com/coocidev/" target="_blank" rel="noopener" ><img src="./icons/instagram.svg" alt="" width="22" height="22" loading="lazy" /> @coocidev</a>
+          <a class="btn-ghost" href="https://t.me/coocidev" target="_blank" rel="noopener"><img src="./icons/telegram.svg" alt="" width="22" height="22" loading="lazy" /> @coocidev</a>
         </div>
-
-        <div class="footer-meta stack">
-          <strong data-i18n="footer.privacy">No storage—your form sends a single encrypted Telegram message to CoociDev's Learn_Web support desk.</strong>
-          <div class="footer-social">
-            <a href="#" aria-label="Discord">
-              <img src="./icons/discord.svg" alt="" width="22" height="22" loading="lazy" />
-            </a>
-            <a href="#" aria-label="YouTube">
-              <img src="./icons/youtube.svg" alt="" width="22" height="22" loading="lazy" />
-            </a>
-            <a href="#" aria-label="Instagram">
-              <img src="./icons/instagram.svg" alt="" width="22" height="22" loading="lazy" />
-            </a>
-          </div>
-        </div>
+        <!-- <div class="footer-meta stack"><strong >@coocidev</strong><div class="footer-social"><a href="https://www.instagram.com/coocidev/" target="_blank" rel="noopener" aria-label="Instagram"><img src="./icons/instagram.svg" alt="" width="22" height="22" loading="lazy" /></a></div></div> -->
       </div>
-
-      <div class="footer-small">
-        <span class="footer-brandline">
-          <span aria-hidden="true">&copy;</span>
-          <span id="y">2024</span>
-          <span data-i18n="footer.brand">CoociDev Academy</span>
-        </span>
-        <span data-i18n="footer.legal">All rights reserved.</span>
-      </div>
+      <div class="footer-small"><span class="footer-brandline"><span aria-hidden="true">&copy;</span><span id="y">2026</span><span data-i18n="footer.brand">COOci Dev Academy</span></span><span data-i18n="footer.legal">همه حقوق محفوظ است.</span></div>
     </div>
   </footer>
 
-  <script>
-    window.TELEGRAM_PROXY_URL = '';
-    window.TELEGRAM_CHAT_ID = 'YOUR_CHAT_ID';
-    window.TELEGRAM_BOT_TOKEN = 'YOUR_BOT_TOKEN';
-  </script>
   <script type="module" src="../assets/js/app.js"></script>
 </body>
 </html>

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="COOci Dev Academy video poster">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07111f"/>
+      <stop offset=".48" stop-color="#10143a"/>
+      <stop offset="1" stop-color="#071827"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".34" cy=".25" r=".7">
+      <stop offset="0" stop-color="#22d3ee" stop-opacity=".46"/>
+      <stop offset="1" stop-color="#22d3ee" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <rect width="1280" height="720" fill="url(#glow)"/>
+  <g opacity=".36" stroke="#60a5fa" stroke-width="2">
+    <path d="M90 560h1100M120 500h1040M180 440h920"/>
+    <path d="M240 110l-70 120 70 120h150l70-120-70-120z" fill="none"/>
+    <path d="M900 145l-90 155 90 155h190l90-155-90-155z" fill="none"/>
+  </g>
+  <circle cx="640" cy="360" r="92" fill="#ffffff" opacity=".12"/>
+  <circle cx="640" cy="360" r="70" fill="#22d3ee" opacity=".18"/>
+  <path d="M615 316v88l82-44z" fill="#f8fbff"/>
+  <text x="640" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="800" fill="#f8fbff">COOci Dev Academy</text>
+  <text x="640" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#b8c7e6">Learn. Build. Earn.</text>
+</svg>

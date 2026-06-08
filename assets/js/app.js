@@ -2,7 +2,6 @@ import { initHero3D } from './hero3d.js';
 import { initFormTelegram } from './form-telegram.js';
 import { COURSES } from './courses.data.js';
 import { renderCourses } from './render.courses.js';
-import { initJobMarket } from './render.jobs.js';
 
 const LANG_STORAGE_KEY = 'learnweb:lang';
 const THEME_STORAGE_KEY = 'learnweb:theme';
@@ -13,9 +12,7 @@ const THEME_ICONS = {
 
 const translationsCache = new Map();
 let revealObserver = null;
-let jobMarketController = null;
-let currentLang = 'en';
-let currentTranslations = null;
+let currentLang = 'fa';
 let heroDispose = null;
 
 const resolvePath = (dict, path) => {
@@ -103,8 +100,7 @@ const renderLangToggle = (lang, dict) => {
   const btn = document.getElementById('langToggle');
   if (!btn) return;
   btn.dataset.lang = lang;
-  const label = dict?.header?.langToggle ?? (lang === 'fa' ? 'EN / FA' : 'FA / EN');
-  btn.textContent = label;
+  btn.textContent = lang === 'fa' ? 'English' : 'فارسی';
   if (dict?.header?.langToggleLabel) {
     btn.setAttribute('aria-label', dict.header.langToggleLabel);
   }
@@ -127,7 +123,7 @@ const populateCourseSelect = (lang) => {
   COURSES.forEach((course) => {
     const option = document.createElement('option');
     option.value = course.id;
-    option.textContent = course.title?.[lang] ?? course.title?.en ?? course.id;
+    option.textContent = course.title?.[lang] ?? course.title?.fa ?? course.title?.en ?? course.id;
     option.dataset.dynamic = '1';
     select.append(option);
   });
@@ -147,26 +143,6 @@ const handleCourseEnroll = (course) => {
   setTimeout(() => {
     select.focus({ preventScroll: true });
   }, 180);
-};
-
-const handleJobMatch = (job) => {
-  const form = document.getElementById('lead-form');
-  const note = document.getElementById('note');
-  if (!form || !note) return;
-  const prefix = currentTranslations?.jobs?.matchPrefix ?? 'Job interest';
-  const title = job.title?.[currentLang] ?? job.title?.en ?? job.id;
-  const entry = `${prefix}: ${title}`;
-  const existing = note.value.trim();
-  if (!existing) {
-    note.value = `${entry}\n`;
-  } else if (!existing.includes(entry)) {
-    note.value = `${entry}\n${existing}`;
-  }
-  note.dispatchEvent(new Event('input', { bubbles: true }));
-  scrollToForm();
-  setTimeout(() => {
-    note.focus({ preventScroll: true });
-  }, 200);
 };
 
 const initScrollProgress = () => {
@@ -258,6 +234,24 @@ const initHeroCanvas = () => {
   heroDispose = initHero3D(canvas, { model: '../../public/models/mascot.glb' });
 };
 
+const initIntroVideo = async () => {
+  const video = document.querySelector('[data-video-src]');
+  const src = video?.dataset.videoSrc;
+  if (!video || !src) return;
+
+  try {
+    const res = await fetch(src, { method: 'HEAD', cache: 'no-store' });
+    if (!res.ok) return;
+    const source = document.createElement('source');
+    source.src = src;
+    source.type = 'video/mp4';
+    video.append(source);
+    video.load();
+  } catch (error) {
+    console.warn('[video] intro video is not available yet', error);
+  }
+};
+
 const initAnchorScroll = () => {
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (event) => {
@@ -293,19 +287,6 @@ const renderCoursesSection = (lang, dict) => {
   });
 };
 
-const renderJobsSection = (lang, dict) => {
-  if (!jobMarketController) {
-    jobMarketController = initJobMarket({
-      lang,
-      labels: dict?.jobs ?? {},
-      registerReveal: registerRevealElement,
-      onMatch: handleJobMatch
-    });
-  } else {
-    jobMarketController.setLanguage(lang, dict?.jobs ?? {});
-  }
-};
-
 const setLanguage = async (lang) => {
   let dict;
   try {
@@ -317,14 +298,12 @@ const setLanguage = async (lang) => {
   }
 
   currentLang = lang;
-  currentTranslations = dict;
   updateDirection(lang);
   applyTranslations(dict);
   renderLangToggle(lang, dict);
   renderThemeLabel(dict);
   populateCourseSelect(lang);
   renderCoursesSection(lang, dict);
-  renderJobsSection(lang, dict);
   localStorage.setItem(LANG_STORAGE_KEY, lang);
   return dict;
 };
@@ -334,12 +313,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   initMobileMenu();
   initThemeToggle();
   initHeroCanvas();
+  initIntroVideo();
   initAnchorScroll();
   initRevealAnimations();
 
   initFormTelegram();
 
-  const storedLang = localStorage.getItem(LANG_STORAGE_KEY) || document.documentElement.lang || 'en';
+  const storedLang = localStorage.getItem(LANG_STORAGE_KEY) || document.documentElement.lang || 'fa';
   await setLanguage(storedLang);
 
   const langToggle = document.getElementById('langToggle');
