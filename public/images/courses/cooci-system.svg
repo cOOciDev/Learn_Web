@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Systems design course cover">
+  <rect width="800" height="450" fill="#070f1f"/>
+  <g fill="none" stroke="#22d3ee" stroke-width="8" opacity=".58">
+    <circle cx="240" cy="170" r="55"/>
+    <circle cx="400" cy="275" r="65"/>
+    <circle cx="575" cy="155" r="58"/>
+    <path d="M286 200l62 42M455 235l75-45"/>
+  </g>
+  <g fill="#a855f7" opacity=".32">
+    <circle cx="240" cy="170" r="24"/>
+    <circle cx="400" cy="275" r="28"/>
+    <circle cx="575" cy="155" r="24"/>
+  </g>
+  <text x="70" y="390" font-family="Arial, sans-serif" font-size="50" font-weight="800" fill="#f8fbff">Cooci Systems</text>
+</svg>

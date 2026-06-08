@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="3D Modeling course cover">
+  <rect width="800" height="450" fill="#07111f"/>
+  <circle cx="650" cy="90" r="160" fill="#22d3ee" opacity=".18"/>
+  <circle cx="180" cy="360" r="180" fill="#a855f7" opacity=".14"/>
+  <path d="M400 105l170 96v192l-170-96z" fill="#60a5fa" opacity=".62"/>
+  <path d="M400 105l-170 96v192l170-96z" fill="#22d3ee" opacity=".5"/>
+  <path d="M230 201l170 96 170-96-170-96z" fill="#f8fbff" opacity=".12"/>
+  <text x="60" y="360" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#f8fbff">3D Modeling</text>
+</svg>

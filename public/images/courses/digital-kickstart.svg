@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Digital quick start course cover">
+  <rect width="800" height="450" fill="#071827"/>
+  <path d="M135 310h530v44H135z" fill="#22d3ee" opacity=".2"/>
+  <path d="M245 310l155-210 155 210z" fill="#60a5fa" opacity=".4"/>
+  <path d="M400 140v170" stroke="#f8fbff" stroke-width="10" opacity=".52"/>
+  <text x="60" y="90" font-family="Arial, sans-serif" font-size="52" font-weight="800" fill="#f8fbff">Digital Start</text>
+</svg>

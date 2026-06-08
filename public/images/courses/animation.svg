@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Animation course cover">
+  <rect width="800" height="450" fill="#100b1f"/>
+  <circle cx="250" cy="220" r="95" fill="#f472b6" opacity=".32"/>
+  <circle cx="390" cy="220" r="75" fill="#a855f7" opacity=".34"/>
+  <circle cx="510" cy="220" r="55" fill="#22d3ee" opacity=".36"/>
+  <path d="M120 330c150-110 310 120 560-20" fill="none" stroke="#f8fbff" stroke-width="8" opacity=".28"/>
+  <text x="60" y="100" font-family="Arial, sans-serif" font-size="56" font-weight="800" fill="#f8fbff">Animation</text>
+</svg>

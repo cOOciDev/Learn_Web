@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Programming course cover">
+  <rect width="800" height="450" fill="#07111f"/>
+  <rect x="100" y="95" width="600" height="260" rx="28" fill="#0f1b33" stroke="#60a5fa" stroke-width="4"/>
+  <path d="M260 180l-70 45 70 45M540 180l70 45-70 45M360 285l80-130" fill="none" stroke="#22d3ee" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="120" y="405" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#f8fbff">Real Programming</text>
+</svg>

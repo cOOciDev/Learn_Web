@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="Startup product course cover">
+  <rect width="800" height="450" fill="#111827"/>
+  <path d="M400 80c95 70 140 160 118 270H282C260 240 305 150 400 80z" fill="#22d3ee" opacity=".25"/>
+  <path d="M400 120c58 50 88 115 75 190H325c-13-75 17-140 75-190z" fill="#f8fbff" opacity=".14"/>
+  <circle cx="400" cy="215" r="36" fill="#60a5fa" opacity=".72"/>
+  <text x="70" y="395" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#f8fbff">Product Startup</text>
+</svg>

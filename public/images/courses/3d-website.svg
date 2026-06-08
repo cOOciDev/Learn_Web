@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-label="3D website course cover">
+  <rect width="800" height="450" fill="#071827"/>
+  <rect x="145" y="85" width="510" height="280" rx="30" fill="#0f1b33" stroke="#60a5fa" stroke-width="4"/>
+  <path d="M400 145l120 70v140l-120-70z" fill="#a855f7" opacity=".52"/>
+  <path d="M400 145l-120 70v140l120-70z" fill="#22d3ee" opacity=".42"/>
+  <text x="70" y="410" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#f8fbff">3D Website</text>
+</svg>
