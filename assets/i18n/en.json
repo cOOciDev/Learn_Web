@@ -1,205 +1,203 @@
 {
   "meta": {
-    "title": "CoociDev Learn_Web | Modern Web Design Academy",
-    "description": "Learn_Web is CoociDev Academy's modern web design program with live mentorship, bilingual content, and career matching.",
-    "ogTitle": "CoociDev Learn_Web | Modern Web Design Academy",
-    "ogDesc": "Join CoociDev Academy's Learn_Web cohorts to master responsive, 3D, and production-ready web design with hiring support."
+    "title": "COOci Dev Academy | Course Registration",
+    "description": "Register for COOci Dev Academy courses in programming, web design, game development, 3D, full-stack development, and startup building.",
+    "ogTitle": "COOci Dev Academy | Course Registration",
+    "ogDesc": "Project-based learning from beginner to professional level with free consultation and online application."
   },
   "header": {
-    "brand": "CoociDev Academy",
-    "tagline": "Learn_Web Program",
-    "overview": "Overview",
-    "work": "Results",
-    "syllabus": "Curriculum",
+    "brand": "COOci Dev Academy",
+    "tagline": "Skill and income path",
+    "why": "Why COOci",
     "courses": "Courses",
-    "jobs": "Job Market",
-    "testimonials": "Testimonials",
+    "path": "Growth Path",
+    "benefits": "Benefits",
+    "faq": "FAQ",
     "contact": "Apply",
     "langToggle": "FA / EN",
     "langToggleLabel": "Toggle between Persian and English",
     "themeToggleLabel": "Toggle color theme"
   },
   "hero": {
-    "pillCohort": "Live cohorts",
-    "pillPlacement": "Job-matching",
-    "pillHybrid": "Hybrid / Remote",
-    "title": "Launch a modern web design career with CoociDev Learn_Web in 12 weeks.",
-    "subtitle": "CoociDev Academy's Learn_Web program blends immersive web-design courses, live mentorship, and a hiring network to get you hired as a high-impact web designer.",
-    "ctaPrimary": "Browse Courses",
-    "ctaSecondary": "See job openings",
-    "note": "Powered by CoociDev mentors and trusted by startups building bilingual, RTL-ready experiences."
+    "pillProject": "Project based",
+    "pillMentor": "Expert mentors",
+    "pillMarket": "Market ready",
+    "title": "Your path to growth and success",
+    "subtitle": "Learn, build, and earn",
+    "support": "From beginner to professional, we support every step.",
+    "ctaPrimary": "Apply and get free consultation",
+    "ctaSecondary": "View courses",
+    "note": "COOci Dev Academy is built for students, young learners, and parents who want a clear and trackable learning path."
   },
-  "logos": {
-    "eyebrow": "Hiring partners",
-    "copy": "Learn_Web graduates from CoociDev Academy ship UI systems for regional startups, SaaS teams, and global agencies."
+  "video": {
+    "eyebrow": "Intro video",
+    "title": "See the COOci Dev Academy learning path from the inside.",
+    "subtitle": "A short look at the courses, projects, and student growth path.",
+    "aria": "COOci Dev Academy intro video"
   },
-  "work": {
-    "eyebrow": "Outcomes",
-    "title": "Craft, test, and ship production-grade experiences.",
-    "subtitle": "Every Learn_Web cohort delivers live projects with measurable results and cross-functional collaboration.",
+  "why": {
+    "eyebrow": "Why COOci Dev",
+    "title": "Real education for real portfolio outcomes.",
+    "subtitle": "The academy focuses on step-by-step learning, presentable projects, and consultation for choosing the right path.",
     "cards": [
       {
-        "title": "Responsive Design Systems",
-        "body": "Ship design tokens, UI kits, and multi-brand components that render flawlessly across languages.",
-        "points": [
-          "Fluid typography and RTL-ready grids",
-          "Design-to-code handoff with live Storybook",
-          "Performance budgets and accessibility"
-        ]
+        "title": "Personalized path",
+        "body": "From quick start to full-stack, game development, 3D, and startup building, the right path is selected based on your level and goal."
       },
       {
-        "title": "Conversion-first Landing Pages",
-        "body": "Pair UX research with animation systems to boost signups and in-product activation.",
-        "points": [
-          "UX audits and microcopy testing",
-          "3D hero and motion guidelines",
-          "Analytics setup with clear KPIs"
-        ]
+        "title": "Practice with visible results",
+        "body": "Every course ends with a project, portfolio piece, or product you can use in your resume and presentations."
       },
       {
-        "title": "Real-world Collaboration",
-        "body": "Practice dev handoff, async rituals, and stakeholder presentations that mirror modern teams.",
-        "points": [
-          "Weekly critiques with design leads",
-          "Paired implementation with engineers",
-          "Hiring day with portfolio challenge"
-        ]
+        "title": "Support for students and parents",
+        "body": "An education consultant clarifies progress, current level, and course selection for both students and parents."
       }
-    ]
-  },
-  "syllabus": {
-    "eyebrow": "Curriculum map",
-    "title": "Six modules blended across design, code, and strategy.",
-    "subtitle": "CoociDev Learn_Web is built for designers moving into hybrid UI/front-end roles.",
-    "items": [
-      "Foundations: research, UX flows, accessibility, HTML/CSS baseline.",
-      "Systems thinking: tokens, grids, responsive typography, component APIs.",
-      "Modern front-end: semantic HTML, CSS architecture, Three.js integration.",
-      "Motion & 3D: micro-interactions, reduced motion patterns, performance.",
-      "Shipping & SEO: audits, Lighthouse, content ops, multi-lingual support.",
-      "Career studio: portfolio review, interview loops, offer negotiation."
     ]
   },
   "courses": {
     "eyebrow": "Courses",
-    "title": "Pick the web-design sprint that fits your goals.",
-    "subtitle": "Each Learn_Web cohort runs live with CoociDev mentors, English/فارسی materials, and project-based feedback.",
-    "note": "Tap “Enroll” to populate the application form below. Seats unlock weekly.",
-    "outcomesLabel": "Outcomes",
-    "cta": "Enroll",
-    "ctaAria": "Enroll — {course}",
+    "title": "Choose the right course from your first project to professional skills.",
+    "subtitle": "All courses are designed around projects, hands-on practice, and a clear route to portfolio building.",
+    "note": "Click Apply on any course to prepare the form below with that course selected.",
+    "durationLabel": "Duration",
+    "priceLabel": "Tuition",
+    "outcomeLabel": "Outcome",
+    "audienceLabel": "Best for",
+    "cta": "Apply",
+    "ctaAria": "Apply - {course}",
     "levels": {
       "beginner": "Beginner",
       "intermediate": "Intermediate",
       "advanced": "Advanced"
     }
   },
-  "jobs": {
-    "eyebrow": "Job market",
-    "title": "Roles hiring right now through CoociDev Learn_Web.",
-    "subtitle": "Filter opportunities by seniority or work style. Matching calls focus on your selected track.",
-    "filters": {
-      "seniority": {
-        "all": "All levels",
-        "junior": "Junior",
-        "mid": "Mid",
-        "senior": "Senior"
-      },
-      "workType": {
-        "all": "All types",
-        "remote": "Remote",
-        "hybrid": "Hybrid",
-        "onsite": "On-site"
-      }
-    },
-    "seniorityLabel": "Seniority",
-    "workTypeLabel": "Work type",
-    "seniorityNames": {
-      "junior": "Junior",
-      "mid": "Mid-level",
-      "senior": "Senior"
-    },
-    "workTypeNames": {
-      "remote": "Remote",
-      "hybrid": "Hybrid",
-      "onsite": "On-site"
-    },
-    "skillsLabel": "Key skills",
-    "cta": "Match me to this role",
-    "ctaAria": "Match me to {role}",
-    "empty": "No openings match these filters right now—check back soon.",
-    "matchPrefix": "Job interest"
+  "path": {
+    "eyebrow": "Growth path",
+    "title": "A simple map from interest to income.",
+    "subtitle": "In the consultation session, we identify your current level and suggest the right course for your next step.",
+    "items": [
+      "Understand interest, age, available time, and learning goal.",
+      "Choose the right course at beginner, intermediate, or advanced level.",
+      "Learn skills through short practices and staged projects.",
+      "Build a presentable output for a resume, portfolio, or product.",
+      "Receive feedback, improve the project, and prepare for the next path."
+    ]
   },
-  "testimonials": {
-    "eyebrow": "What alumni say",
-    "title": "Career pivots, promotions, and remote offers.",
-    "subtitle": "CoociDev Learn_Web alumni design for fintech, e-commerce, and creative studios across MENA and Europe.",
-    "cards": [
+  "benefits": {
+    "eyebrow": "Benefits for students and parents",
+    "title": "Clear, project-based, and easy to track.",
+    "subtitle": "Courses are designed for real skill growth, confidence, and better decisions about a digital future.",
+    "items": [
       {
-        "name": "Laleh Vahidi",
-        "role": "Product Designer · Snapp!",
-        "quote": "The hybrid UI/front-end track unlocked my promotion to lead responsive projects in both Persian and English."
+        "title": "Professional instructors",
+        "body": "Training by instructors with real market and delivery experience."
       },
       {
-        "name": "Kayvan Mehr",
-        "role": "Frontend Engineer · Freelance",
-        "quote": "My mentor helped me target EU agencies and I signed a remote contract two weeks after demo day."
+        "title": "Project-based learning",
+        "body": "A focus on building, practicing, and creating visible outcomes."
       },
       {
-        "name": "Nazanin Etemad",
-        "role": "UX Designer · Divar",
-        "quote": "The 3D hero lab plus hiring support gave me confidence to collaborate with developers on production WebGL."
+        "title": "Income-ready skills",
+        "body": "Programming, web design, game development, and product building with a market mindset."
+      },
+      {
+        "title": "Path support",
+        "body": "Guidance and answers throughout learning and choosing the next step."
+      },
+      {
+        "title": "Completion certificate",
+        "body": "A completion certificate after finishing projects and exercises."
+      },
+      {
+        "title": "Beginner to professional path",
+        "body": "Connected courses for steady, measurable, goal-oriented growth."
       }
     ]
   },
   "contact": {
-    "eyebrow": "Apply now",
-    "title": "Tell us how CoociDev Learn_Web can accelerate your next role.",
-    "subtitle": "We reply within 24 hours. The form sends one secure Telegram message and nothing is stored.",
+    "eyebrow": "Apply",
+    "title": "Consultation and course registration form",
+    "subtitle": "Your request is sent securely to a COOci Dev education consultant.",
     "fields": {
       "name": {
         "label": "Full name",
         "placeholder": "e.g. Sara Rahimi",
-        "helper": "Add your full name (minimum 3 characters)."
+        "helper": "Enter your full name."
       },
       "phone": {
         "label": "Phone or WhatsApp",
-        "placeholder": "+98 912 000 0000",
-        "helper": "Use an Iranian mobile (09xxxxxxxx) or international format."
+        "placeholder": "09120000000",
+        "helper": "Enter a valid phone number."
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "name@example.com",
+        "helper": "If you enter an email, use a valid email format."
+      },
+      "age": {
+        "label": "Student age",
+        "placeholder": "e.g. 16",
+        "helper": "Age must be between 6 and 99."
       },
       "course": {
         "label": "Course of interest",
         "placeholder": "Select a course",
-        "helper": "Choose the course you want to enroll in.",
-        "empty": "Please select a course option."
+        "helper": "Choose the course you want.",
+        "empty": "Please select one course."
       },
-      "note": {
-        "label": "Context",
-        "placeholder": "Share goals, timeline, job interest, or portfolio link.",
-        "helper": "Optional but helpful - minimum 10 characters if provided."
+      "level": {
+        "label": "Current level",
+        "placeholder": "I am not sure",
+        "options": ["Beginner", "Intermediate", "Professional"]
+      },
+      "preferredContact": {
+        "label": "Preferred contact method",
+        "placeholder": "Select contact method",
+        "options": ["Phone call", "WhatsApp", "Telegram", "SMS"]
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Write your goal, question, or preferred call time."
       }
     },
-    "consent": "I agree to receive course updates and job-matching details by message.",
-    "consentHelper": "Required so we can contact you about the cohort.",
-    "submit": "Submit application",
-    "ok": "Thank you! We just sent the message and will follow up shortly.",
-    "fail": "We could not send the message. Please review the form or try again."
+    "consent": "I agree to be contacted by a COOci Dev education consultant.",
+    "consentHelper": "Required for consultation coordination.",
+    "submit": "Send application",
+    "ok": "Your request was submitted successfully. A COOci Dev education consultant will contact you soon.",
+    "fail": "The request could not be sent. Please try again or message @coocidev on Instagram."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "What should you know before applying?",
+    "items": [
+      {
+        "q": "Do I need previous experience to start?",
+        "a": "No. Beginner courses are designed for starting from zero, and advanced courses are recommended after consultation."
+      },
+      {
+        "q": "Which course is right for my child?",
+        "a": "Enter age and goal in the form so the academy consultant can suggest the right path."
+      },
+      {
+        "q": "What happens after I submit the form?",
+        "a": "Your request is sent to the education consultant, who will contact you for consultation, scheduling, and final registration."
+      }
+    ]
   },
   "footer": {
-    "tagline": "CoociDev Academy powers Learn_Web to turn designers into production-ready web experts with bilingual support.",
+    "tagline": "COOci Dev Academy guides the learning path for digital skills from beginner to professional.",
     "links": {
-      "overview": "Overview",
-      "work": "Results",
-      "syllabus": "Curriculum",
+      "why": "Why COOci",
       "courses": "Courses",
-      "jobs": "Job Market",
-      "testimonials": "Testimonials",
+      "path": "Growth Path",
+      "benefits": "Benefits",
       "contact": "Apply",
-      "email": "Email us"
+      "website": "coocidev.com",
+      "instagram": "@coocidev"
     },
-    "privacy": "No storage—your form sends a single encrypted Telegram message to CoociDev's Learn_Web support desk.",
-    "brand": "CoociDev Academy",
-    "brandShort": "CoociDev",
+    "privacy": "Applications are sent through a secure endpoint to the COOci Dev team, and the Telegram token is not present in the frontend.",
+    "brand": "COOci Dev Academy",
+    "brandShort": "COOci Dev",
     "legal": "All rights reserved."
   }
 }
