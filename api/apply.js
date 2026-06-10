@@ -5,6 +5,8 @@ const MAX_MESSAGE = 1000;
 const RATE_WINDOW_MS = 60 * 1000;
 const RATE_LIMIT = 8;
 const hits = new Map();
+const nodemailer = require('nodemailer');
+
 
 const cleanText = (value, max = MAX_FIELD) => {
   return String(value ?? '')
@@ -75,7 +77,7 @@ const formatMessage = (payload) => [
   '',
   `منبع: ${payload.source}`,
   `زمان ارسال: ${payload.submittedAtJalali}`,
-  `زمان میلادی: ${payload.submittedAt}`
+  // `زمان میلادی: ${payload.submittedAt}`
 ].join('\n');
 
 module.exports = async function handler(req, res) {
@@ -97,12 +99,25 @@ module.exports = async function handler(req, res) {
     return;
   }
 
+  // Telegram configuration
   const token = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chatId) {
     json(res, 500, { ok: false, error: 'telegram_not_configured' });
     return;
   }
+
+
+// gmail configuration 
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailPass = process.env.GMAIL_APP_PASSWORD;
+
+  if (!gmailUser || !gmailPass) {
+    json(res, 500, { ok: false, error: 'gmail_not_configured' });
+    return;
+  }
+
+
 
   let body;
   try {
@@ -137,12 +152,15 @@ module.exports = async function handler(req, res) {
     return;
   }
 
+  const messageText = formatMessage(payload);
+
+
   const telegramRes = await fetch(`${TELEGRAM_API}/bot${token}/sendMessage`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       chat_id: chatId,
-      text: formatMessage(payload),
+      text: messageText,
       disable_web_page_preview: true
     })
   });
@@ -151,6 +169,25 @@ module.exports = async function handler(req, res) {
     json(res, 502, { ok: false, error: 'telegram_send_failed' });
     return;
   }
+
+
+
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: payload.email ? gmailUser : 'COOci Dev Learn Web <${gmailUser}>',
+      pass: gmailPass
+    }
+  });
+
+  await transporter.sendMail({
+    from: payload.email ? gmailUser : 'COOci Dev Learn Web <${gmailUser}>',
+    to: 'cooci.ebrahimi@gmail.com',
+    subject: `درخواست ثبت نام جدید - ${payload.fullName}`,
+    text: messageText
+  });
+
+
 
   json(res, 200, { ok: true });
 };
