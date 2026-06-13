@@ -1,13 +1,22 @@
 import { initHero3D } from './hero3d.js';
-import { initFormTelegram } from './form-telegram.js';
+import { initMailtoForm } from './form-mailto.js';
 import { COURSES } from './courses.data.js';
 import { renderCourses } from './render.courses.js';
 
 const LANG_STORAGE_KEY = 'learnweb:lang';
 const THEME_STORAGE_KEY = 'learnweb:theme';
 const THEME_ICONS = {
-  light: '\u{1F319}',
-  dark: '\u2600'
+  light: `
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <path d="M20.35 14.45A8.2 8.2 0 0 1 9.55 3.65a7.2 7.2 0 1 0 10.8 10.8Z" fill="currentColor"/>
+      <path d="M16.8 3.2l.55 1.25 1.25.55-1.25.55-.55 1.25-.55-1.25L15 5l1.25-.55.55-1.25Z" fill="currentColor" opacity=".75"/>
+      <path d="M19.35 7.1l.35.8.8.35-.8.35-.35.8-.35-.8-.8-.35.8-.35.35-.8Z" fill="currentColor" opacity=".75"/>
+    </svg>`,
+  dark: `
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="12" r="4.4" fill="currentColor"/>
+      <path d="M12 2.75v2.1M12 19.15v2.1M4.85 12h-2.1M21.25 12h-2.1M6.95 6.95 5.45 5.45M18.55 18.55l-1.5-1.5M17.05 6.95l1.5-1.5M5.45 18.55l1.5-1.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+    </svg>`
 };
 
 const translationsCache = new Map();
@@ -237,7 +246,7 @@ const initThemeToggle = () => {
         toggle.setAttribute('aria-pressed', mode === 'light' ? 'true' : 'false');
       });
       getThemeIcons().forEach((icon) => {
-        icon.textContent = mode === 'light' ? THEME_ICONS.light : THEME_ICONS.dark;
+        icon.innerHTML = mode === 'light' ? THEME_ICONS.light : THEME_ICONS.dark;
       });
       if (persist) localStorage.setItem(THEME_STORAGE_KEY, mode);
     };
@@ -267,7 +276,7 @@ const initThemeToggle = () => {
     const root = document.documentElement;
     root.setAttribute('data-theme', mode);
     toggle.setAttribute('aria-pressed', mode === 'light' ? 'true' : 'false');
-    if (icon) icon.textContent = mode === 'light' ? THEME_ICONS.light : THEME_ICONS.dark;
+    if (icon) icon.innerHTML = mode === 'light' ? THEME_ICONS.light : THEME_ICONS.dark;
     if (persist) localStorage.setItem(THEME_STORAGE_KEY, mode);
   };
 
@@ -376,7 +385,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   initAnchorScroll();
   initRevealAnimations();
 
-  initFormTelegram();
+  initMailtoForm();
 
   const storedLang = localStorage.getItem(LANG_STORAGE_KEY) || document.documentElement.lang || 'fa';
   await setLanguage(storedLang);

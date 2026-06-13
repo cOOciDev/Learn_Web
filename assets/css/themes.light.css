@@ -101,3 +101,33 @@
   background: rgba(255, 255, 255, 0.96);
   color: var(--ink-1);
 }
+
+[data-theme="light"] .mail-modal {
+  --mail-modal-bg: #f7f9ff;
+  --mail-modal-panel-bg: radial-gradient(circle at 18% 10%, rgba(96, 165, 250, 0.16), transparent 58%), radial-gradient(circle at 78% 6%, rgba(168, 85, 247, 0.1), transparent 62%), #f7f9ff;
+  --mail-modal-box-bg: rgba(255, 255, 255, 0.92);
+  --mail-modal-action-bg: rgba(247, 249, 255, 0.96);
+  --mail-modal-textarea-bg: rgba(255, 255, 255, 0.96);
+}
+
+[data-theme="light"] .mail-modal-close {
+  background: rgba(96, 126, 255, 0.12);
+  border-color: rgba(96, 126, 255, 0.24);
+  color: var(--ink-1);
+}
+
+[data-theme="light"] .fallback-copy-box {
+  border-color: rgba(96, 126, 255, 0.18);
+  box-shadow: var(--shadow-xs);
+}
+
+[data-theme="light"] .fallback-copy-box textarea {
+  border-color: rgba(96, 126, 255, 0.22);
+  color: var(--ink-1);
+}
+
+[data-theme="light"] .form-toast {
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--ink-1);
+  border-color: rgba(96, 126, 255, 0.22);
+}

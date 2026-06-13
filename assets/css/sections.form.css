@@ -119,6 +119,184 @@
     color: #ffb3c8;
   }
 
+  .submit-btn.is-loading::after {
+    content: "";
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    border: 2px solid rgba(1, 3, 11, 0.35);
+    border-top-color: rgba(1, 3, 11, 0.95);
+    animation: form-spin 0.75s linear infinite;
+  }
+
+  .mail-modal {
+    --mail-modal-bg: var(--bg-page);
+    --mail-modal-panel-bg: var(--bg-gradient), var(--bg-page);
+    --mail-modal-box-bg: var(--surface-1);
+    --mail-modal-action-bg: rgba(8, 12, 32, 0.94);
+    --mail-modal-textarea-bg: rgba(8, 12, 32, 0.78);
+
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    display: block;
+    padding: 0;
+    background: var(--mail-modal-bg);
+    overflow: hidden;
+    overscroll-behavior: contain;
+  }
+
+  .mail-modal.hidden {
+    display: none;
+  }
+
+  .mail-modal-panel {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    min-height: 100vh;
+    margin: 0;
+    padding: clamp(18px, 4vw, 38px);
+    border-radius: 0;
+    border: 0;
+    background: var(--mail-modal-panel-bg);
+    color: var(--ink-1);
+    box-shadow: none;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    animation: modal-pop 0.22s ease-out;
+  }
+
+  .mail-modal-panel > .stack,
+  .mail-modal-panel > .fallback-copy-grid {
+    width: min(920px, 100%);
+    margin-inline: auto;
+  }
+
+  .mail-modal-panel h3 {
+    color: var(--ink-1);
+  }
+
+  .mail-modal-panel p,
+  .mail-modal-panel .section-sub {
+    color: var(--ink-2);
+  }
+
+  .mail-modal-close {
+    position: fixed;
+    inset-block-start: calc(14px + var(--safe-top));
+    inset-inline-end: 14px;
+    z-index: 1;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(96, 126, 255, 0.32);
+    background: rgba(96, 126, 255, 0.14);
+    color: var(--ink-1);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+
+  .fallback-copy-grid {
+    display: grid;
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .fallback-copy-box {
+    display: grid;
+    gap: 10px;
+    padding: 14px;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-sm);
+    background: var(--mail-modal-box-bg);
+    color: var(--ink-1);
+  }
+
+  .fallback-copy-box span {
+    font-size: var(--step--2);
+    color: var(--ink-muted);
+  }
+
+  .fallback-copy-box strong {
+    direction: ltr;
+    text-align: start;
+    color: var(--ink-1);
+    overflow-wrap: anywhere;
+  }
+
+  .fallback-copy-box textarea {
+    min-height: clamp(220px, 36vh, 380px);
+    max-height: 48vh;
+    resize: vertical;
+    white-space: pre-wrap;
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-sm);
+    background: var(--mail-modal-textarea-bg);
+    color: var(--ink-1);
+    line-height: 1.65;
+  }
+
+  .mail-modal-actions {
+    position: sticky;
+    bottom: -1px;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    padding-top: 12px;
+    background: linear-gradient(180deg, transparent, var(--mail-modal-action-bg) 22%);
+  }
+
+  .mail-modal-actions .btn,
+  .mail-modal-actions .btn-ghost {
+    width: 100%;
+    min-height: 44px;
+    padding-inline: 1em;
+  }
+
+  .form-toast {
+    position: fixed;
+    inset-inline: 50%;
+    inset-block-end: 22px;
+    z-index: 240;
+    min-width: min(320px, calc(100vw - 32px));
+    transform: translate(-50%, 18px);
+    opacity: 0;
+    pointer-events: none;
+    padding: 0.85em 1.1em;
+    border-radius: var(--radius-sm);
+    background: rgba(15, 23, 42, 0.94);
+    border: 1px solid var(--glass-border);
+    color: var(--ink-1);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: opacity var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .form-toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  @keyframes form-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes modal-pop {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
   @media (max-width: 720px) {
     .form-grid {
       grid-template-columns: 1fr;
@@ -130,6 +308,20 @@
 
     .submit-btn {
       width: 100%;
+    }
+
+    .mail-modal {
+      padding: 0;
+    }
+
+    .mail-modal-panel {
+      padding-block: 22px;
+    }
+
+    .mail-modal-actions {
+      grid-template-columns: 1fr;
+      position: static;
+      background: transparent;
     }
   }
 }

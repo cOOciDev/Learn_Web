@@ -117,7 +117,7 @@
   "contact": {
     "eyebrow": "Apply",
     "title": "Consultation and course registration form",
-    "subtitle": "Your request is sent securely to a COOci Dev education consultant.",
+    "subtitle": "After you complete the form, an email draft opens so you can review and send it.",
     "fields": {
       "name": {
         "label": "Full name",
@@ -162,9 +162,19 @@
     },
     "consent": "I agree to be contacted by a COOci Dev education consultant.",
     "consentHelper": "Required for consultation coordination.",
-    "submit": "Send application",
-    "ok": "Your request was submitted successfully. A COOci Dev education consultant will contact you soon.",
-    "fail": "The request could not be sent. Please try again or message @coocidev on Instagram."
+    "submit": "Prepare email",
+    "ok": "The email draft is ready. Please review it and click Send.",
+    "fail": "If your email app did not open, use the copy options.",
+    "fallback": {
+      "eyebrow": "Email draft",
+      "title": "Your email is ready",
+      "body": "Open the email first. If your email app does not open, copy the destination and prepared message.",
+      "emailLabel": "Destination email",
+      "messageLabel": "Prepared message",
+      "openMail": "Open email app",
+      "copyEmail": "Copy email",
+      "copyMessage": "Copy prepared message"
+    }
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -195,7 +205,7 @@
       "website": "coocidev.com",
       "instagram": "@coocidev"
     },
-    "privacy": "Applications are sent through a secure endpoint to the COOci Dev team, and the Telegram token is not present in the frontend.",
+    "privacy": "This form works without a backend and only prepares an email draft in your email app.",
     "brand": "COOci Dev Academy",
     "brandShort": "COOci Dev",
     "legal": "All rights reserved."

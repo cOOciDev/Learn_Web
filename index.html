@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://coocidev.github.io/Learn_Web/" />
   <meta property="og:image" content="https://coocidev.github.io/Learn_Web/public/images/logo.svg" />
   <meta name="twitter:card" content="summary" />
-  <meta name="cooci-api-endpoint" content="" />
+  <meta name="cooci-contact-email" content="cooci.ebrahimi@gmail.com" />
   <meta name="theme-color" content="#070b1a" />
   <link rel="canonical" href="https://coocidev.github.io/Learn_Web/" />
   <link rel="icon" href="./public/images/logo.svg" type="image/svg+xml" />
@@ -173,7 +173,7 @@
       <div class="section-head stack">
         <p class="eyebrow" data-i18n="contact.eyebrow">ثبت نام</p>
         <h2 data-i18n="contact.title">فرم درخواست مشاوره و ثبت نام</h2>
-        <p class="section-sub" data-i18n="contact.subtitle">درخواست شما به صورت امن برای مشاور آموزشی COOci Dev ارسال می شود.</p>
+        <p class="section-sub" data-i18n="contact.subtitle">پس از تکمیل فرم، پیش نویس ایمیل آماده می شود تا آن را بررسی و ارسال کنید.</p>
       </div>
       <form id="lead-form" novalidate data-reveal="up" data-scroll-target>
         <div class="form-grid">
@@ -189,10 +189,36 @@
         <div class="form-field hp" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off" /></div>
         <div class="checkbox-field"><input id="consent" name="consent" type="checkbox" required aria-describedby="consentHelp" /><label for="consent" data-i18n="contact.consent">با تماس مشاور آموزشی COOci Dev موافقم.</label></div>
         <p id="consentHelp" class="helper" data-i18n="contact.consentHelper">برای هماهنگی مشاوره لازم است.</p>
-        <div class="form-actions"><button class="btn submit-btn" type="submit" data-i18n="contact.submit">ارسال درخواست</button></div>
-        <p id="ok" class="form-status" role="status" data-i18n="contact.ok">درخواست شما با موفقیت ثبت شد. مشاور آموزشی COOci Dev به زودی با شما تماس می گیرد.</p>
-        <p id="fail" class="form-status" role="status" data-i18n="contact.fail">ارسال درخواست ناموفق بود. لطفا دوباره تلاش کنید یا از طریق اینستاگرام @coocidev پیام دهید.</p>
+        <div class="form-actions"><button class="btn submit-btn" type="submit" data-i18n="contact.submit">آماده سازی ایمیل</button></div>
+        <p id="ok" class="form-status" role="status" data-i18n="contact.ok">پیش نویس ایمیل آماده شد. لطفا آن را بررسی کنید و Send را بزنید.</p>
+        <p id="fail" class="form-status" role="status" data-i18n="contact.fail">اگر برنامه ایمیل باز نشد، از گزینه های کپی استفاده کنید.</p>
       </form>
+      <div id="mailFallbackModal" class="mail-modal hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="mailFallbackTitle">
+        <div class="mail-modal-panel glass">
+          <button class="mail-modal-close" type="button" aria-label="Close" data-close-mail-modal>&times;</button>
+          <div class="stack">
+            <p class="eyebrow" data-i18n="contact.fallback.eyebrow">پیش نویس ایمیل</p>
+            <h3 id="mailFallbackTitle" data-i18n="contact.fallback.title">ایمیل شما آماده است</h3>
+            <p class="section-sub" data-i18n="contact.fallback.body">ابتدا ایمیل را باز کنید. اگر برنامه ایمیل باز نشد، آدرس و متن آماده را کپی کنید.</p>
+          </div>
+          <div class="fallback-copy-grid">
+            <div class="fallback-copy-box">
+              <span data-i18n="contact.fallback.emailLabel">ایمیل مقصد</span>
+              <strong id="fallbackEmail">YOUR_EMAIL_ADDRESS</strong>
+            </div>
+            <div class="fallback-copy-box full">
+              <span data-i18n="contact.fallback.messageLabel">متن آماده</span>
+              <textarea id="fallbackMessage" rows="9" readonly></textarea>
+            </div>
+            <div class="mail-modal-actions">
+              <button class="btn" type="button" data-open-mail data-i18n="contact.fallback.openMail">باز کردن ایمیل</button>
+              <button class="btn-ghost btn-compact" type="button" data-copy-email data-i18n="contact.fallback.copyEmail">کپی ایمیل</button>
+              <button class="btn-ghost btn-compact" type="button" data-copy-message data-i18n="contact.fallback.copyMessage">کپی متن آماده</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="formToast" class="form-toast" role="status" aria-live="polite"></div>
     </section>
 
     <section id="faq" class="container section-block" data-reveal="up">

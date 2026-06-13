@@ -89,6 +89,43 @@
     display: block;
   }
 
+  .theme-toggle {
+    inline-size: 42px;
+    padding-inline: 0;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .theme-icon {
+    display: grid;
+    place-items: center;
+    inline-size: 24px;
+    block-size: 24px;
+    color: var(--accent-3);
+    transition: color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .theme-icon svg {
+    display: block;
+    inline-size: 20px;
+    block-size: 20px;
+  }
+
+  .theme-toggle:hover .theme-icon,
+  .theme-toggle:focus-visible .theme-icon {
+    color: var(--accent-1);
+    transform: rotate(-10deg) scale(1.08);
+  }
+
+  [data-theme="light"] .theme-icon {
+    color: #5b21b6;
+  }
+
+  [data-theme="light"] .theme-toggle:hover .theme-icon,
+  [data-theme="light"] .theme-toggle:focus-visible .theme-icon {
+    color: #2563eb;
+  }
+
   #mobileMenu {
     position: absolute;
     inset-inline: 0;
@@ -164,4 +201,3 @@
     }
   } */
 }
-

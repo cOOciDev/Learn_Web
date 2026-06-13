@@ -1,170 +1,101 @@
 # COOci Dev Academy
 
-Static GitHub Pages frontend with a separate secure backend API for course signup/contact messages.
+Static GitHub Pages contact and course request page.
 
-## Architecture
+The form uses a pure client-side `mailto:` workflow. There is no backend, no API endpoint, no Telegram bot, no Gmail password, no `.env`, and no Node.js requirement for deployment.
 
-- `index.html` is the only frontend entry point for GitHub Pages.
-- `assets/` contains public CSS, JavaScript, i18n JSON, and course data.
-- `public/` contains public images, icons, fonts, and the 3D model.
-- `api/register.js`, `api/apply.js`, and `api/health.js` are backend/serverless files for Vercel or a small Node host.
-- `server.js` is only for local development.
+## How The Form Works
 
-GitHub Pages cannot run Node.js, Nodemailer, or Telegram Bot API secrets. The frontend must call a deployed backend URL.
+1. The user fills the form.
+2. JavaScript validates required fields.
+3. JavaScript creates a formatted email subject and body.
+4. The browser opens the user's default email client with `mailto:`.
+5. The user reviews or edits the email.
+6. The user manually clicks Send.
 
-## Security Rules
+If the email client does not open, the fallback modal lets the user copy:
 
-Never commit real values for:
+- destination email address
+- prepared email message
+
+## Configure Destination Email
+
+Edit `index.html`:
+
+```html
+<meta name="cooci-contact-email" content="YOUR_EMAIL_ADDRESS" />
+```
+
+Replace `YOUR_EMAIL_ADDRESS` with the real destination address, for example:
+
+```html
+<meta name="cooci-contact-email" content="academy@example.com" />
+```
+
+This address is public because it is part of the static website. Do not put passwords, tokens, private chat IDs, or API keys in this project.
+
+## Project Structure
 
 ```text
-TELEGRAM_BOT_TOKEN
-TELEGRAM_CHAT_ID
-GMAIL_USER
-GMAIL_APP_PASSWORD
-ADMIN_NOTIFICATION_EMAIL
+index.html                  Main GitHub Pages entry point
+assets/css/                 Styles
+assets/js/app.js            Main frontend app
+assets/js/form-mailto.js    Client-side mailto form workflow
+assets/i18n/                Persian and English translations
+public/                     Images, icons, fonts, and 3D model
+.github/workflows/static.yml GitHub Pages deployment workflow
+.nojekyll                   Keeps GitHub Pages from processing assets with Jekyll
 ```
 
-Keep secrets only in local `.env` or backend host environment variables. `.env`, `.env.local`, `node_modules`, logs, and common key/secret files are ignored by git.
+## Local Preview
 
-If secrets were committed before, rotate them immediately:
-
-1. Revoke the Telegram bot token with BotFather and create a new token.
-2. Generate a new Google App Password and delete the old one.
-3. Change private chat IDs or destination groups if needed.
-4. Remove secrets from git tracking and commit the cleanup.
-
-Cleanup commands:
+Use any static file server. Examples:
 
 ```powershell
-git rm -r --cached node_modules
-git rm --cached .env
-git add .gitignore .env.example
-git commit -m "Secure repo: remove secrets and node_modules"
+python -m http.server 8080
 ```
 
-## Local Development
-
-Install dependencies:
-
-```powershell
-npm install
-```
-
-Create local secrets:
-
-```powershell
-copy .env.example .env
-```
-
-Edit `.env` with private values:
-
-```text
-TELEGRAM_BOT_TOKEN=your_private_bot_token
-TELEGRAM_CHAT_ID=your_private_chat_id
-GMAIL_USER=your_gmail_address
-GMAIL_APP_PASSWORD=your_google_app_password
-ADMIN_NOTIFICATION_EMAIL=admin_destination_email
-ALLOWED_ORIGIN=http://localhost:8080
-```
-
-Run locally:
-
-```powershell
-npm run dev
-```
-
-Open:
+Then open:
 
 ```text
 http://localhost:8080/
 ```
 
-If port `8080` is already in use, the local server automatically tries the next ports.
+You can also use VS Code Live Server.
 
-Run syntax checks:
+## Deploy To GitHub Pages
+
+1. Commit the static project:
 
 ```powershell
-npm run check
+git add .
+git commit -m "Use client-side mailto contact form"
+git push
 ```
 
-## Frontend Deployment: GitHub Pages
+2. In GitHub, open the repository settings.
+3. Go to `Pages`.
+4. Set `Build and deployment` to `GitHub Actions`.
+5. Run the `Deploy static content to Pages` workflow.
 
-The workflow at `.github/workflows/static.yml` deploys only:
-
-```text
-index.html
-assets/
-public/
-.nojekyll
-```
-
-Expected production URL:
+Production URL:
 
 ```text
 https://coocidev.github.io/Learn_Web/
 ```
 
-Configure the public backend endpoint in `index.html`:
+## Security Notes
 
-```html
-<meta name="cooci-api-endpoint" content="https://your-backend.example.com/api/register" />
-```
-
-This URL is public and is not a secret. Do not put Telegram tokens, Gmail passwords, or chat IDs in frontend files.
-
-## Backend Deployment
-
-The current backend is compatible with Vercel Functions or a small Node host such as Railway/Render. Set these environment variables in the backend host:
+This project must not contain:
 
 ```text
-TELEGRAM_BOT_TOKEN=your_private_bot_token
-TELEGRAM_CHAT_ID=your_private_chat_id
-GMAIL_USER=your_gmail_address
-GMAIL_APP_PASSWORD=your_google_app_password
-ADMIN_NOTIFICATION_EMAIL=admin_destination_email
-ALLOWED_ORIGIN=https://coocidev.github.io
+.env
+Telegram bot token
+Telegram private chat ID
+Gmail app password
+SMTP credentials
+API keys
+node_modules/
 ```
 
-Endpoints:
-
-```text
-GET  /api/health
-POST /api/register
-POST /api/apply
-```
-
-The API validates and sanitizes request fields, rate-limits by IP in-memory, rejects honeypot spam, sends a formatted Telegram message, and optionally sends a Gmail notification.
-
-## Telegram Helpers
-
-If you do not know the Telegram chat ID, send `/start` to the bot from the receiving Telegram account, then run:
-
-```powershell
-npm run list:telegram
-```
-
-To test Telegram and the full API flow after `.env` is configured:
-
-```powershell
-npm run check:telegram
-```
-
-## Media
-
-Course covers live in:
-
-```text
-public/images/courses/
-```
-
-The intro video block expects:
-
-```text
-public/videos/academy-intro.mp4
-```
-
-The poster already exists at:
-
-```text
-public/images/video-poster.svg
-```
+The contact email is public by design. If you need private notifications, use a backend in a separate private service, but this version intentionally does not use one.
