@@ -19,6 +19,10 @@ const resolvePath = (dict, path) => {
   return path.split('.').reduce((acc, key) => (acc && typeof acc === 'object') ? acc[key] : undefined, dict);
 };
 
+const getLangToggles = () => Array.from(document.querySelectorAll('.lang-toggle'));
+const getThemeToggles = () => Array.from(document.querySelectorAll('.theme-toggle'));
+const getThemeIcons = () => Array.from(document.querySelectorAll('.theme-icon'));
+
 const ensureRevealObserver = () => {
   if (revealObserver) return revealObserver;
   revealObserver = new IntersectionObserver((entries) => {
@@ -97,6 +101,19 @@ const applyTranslations = (dict) => {
 };
 
 const renderLangToggle = (lang, dict) => {
+  const toggles = getLangToggles();
+  if (toggles.length) {
+    const label = lang === 'fa' ? 'English' : '\u0641\u0627\u0631\u0633\u06cc';
+    toggles.forEach((btn) => {
+      btn.dataset.lang = lang;
+      btn.textContent = label;
+      if (dict?.header?.langToggleLabel) {
+        btn.setAttribute('aria-label', dict.header.langToggleLabel);
+      }
+    });
+    return;
+  }
+
   const btn = document.getElementById('langToggle');
   if (!btn) return;
   btn.dataset.lang = lang;
@@ -107,6 +124,17 @@ const renderLangToggle = (lang, dict) => {
 };
 
 const renderThemeLabel = (dict) => {
+  const toggles = getThemeToggles();
+  if (toggles.length) {
+    toggles.forEach((toggle) => {
+      if (dict?.header?.themeToggleLabel) {
+        toggle.setAttribute('aria-label', dict.header.themeToggleLabel);
+        toggle.title = dict.header.themeToggleLabel;
+      }
+    });
+    return;
+  }
+
   const toggle = document.getElementById('themeToggle');
   if (!toggle) return;
   if (dict?.header?.themeToggleLabel) {
@@ -200,6 +228,37 @@ const initMobileMenu = () => {
 };
 
 const initThemeToggle = () => {
+  const toggles = getThemeToggles();
+  if (toggles.length) {
+    const applyTheme = (mode, persist = true) => {
+      const root = document.documentElement;
+      root.setAttribute('data-theme', mode);
+      toggles.forEach((toggle) => {
+        toggle.setAttribute('aria-pressed', mode === 'light' ? 'true' : 'false');
+      });
+      getThemeIcons().forEach((icon) => {
+        icon.textContent = mode === 'light' ? THEME_ICONS.light : THEME_ICONS.dark;
+      });
+      if (persist) localStorage.setItem(THEME_STORAGE_KEY, mode);
+    };
+
+    const stored = localStorage.getItem(THEME_STORAGE_KEY);
+    const media = window.matchMedia?.('(prefers-color-scheme: light)');
+    const initial = stored || (media?.matches ? 'light' : 'dark');
+    applyTheme(initial, false);
+
+    media?.addEventListener?.('change', (event) => {
+      if (localStorage.getItem(THEME_STORAGE_KEY)) return;
+      applyTheme(event.matches ? 'light' : 'dark', false);
+    });
+
+    toggles.forEach((toggle) => toggle.addEventListener('click', () => {
+      const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      applyTheme(next);
+    }));
+    return;
+  }
+
   const toggle = document.getElementById('themeToggle');
   const icon = document.getElementById('themeIcon');
   if (!toggle) return;
@@ -326,6 +385,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   langToggle?.addEventListener('click', async () => {
     const next = (currentLang === 'fa') ? 'en' : 'fa';
     await setLanguage(next);
+  });
+
+  document.querySelectorAll('.lang-toggle:not(#langToggle)').forEach((toggle) => {
+    toggle.addEventListener('click', async () => {
+      const next = (currentLang === 'fa') ? 'en' : 'fa';
+      await setLanguage(next);
+    });
   });
 
   const year = document.getElementById('y');
