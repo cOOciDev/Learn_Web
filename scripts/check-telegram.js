@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { Readable } = require('stream');
-const applyHandler = require('../api/apply');
+const registerHandler = require('../api/register');
 
 const ROOT = path.resolve(__dirname, '..');
 
@@ -37,7 +37,7 @@ const callApply = async () => {
 
   const req = Readable.from([JSON.stringify(payload)]);
   req.method = 'POST';
-  req.headers = { origin: 'local-check' };
+  req.headers = {};
   req.socket = { remoteAddress: '127.0.0.1' };
 
   let statusCode = 0;
@@ -49,7 +49,7 @@ const callApply = async () => {
     end(value = '') { output = value; }
   };
 
-  await applyHandler(req, res);
+  await registerHandler(req, res);
   return { statusCode, output };
 };
 
@@ -112,6 +112,11 @@ const checkDirectSend = async () => {
     process.exit(1);
   }
 
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    console.error('Missing GMAIL_USER or GMAIL_APP_PASSWORD in .env.');
+    process.exit(1);
+  }
+
   console.log(`chat id format: ${describeChatId(process.env.TELEGRAM_CHAT_ID)}`);
   const botOk = await checkBotToken();
   if (!botOk) {
@@ -124,7 +129,7 @@ const checkDirectSend = async () => {
   }
 
   const result = await callApply();
-  console.log(`apply status: ${result.statusCode}`);
+  console.log(`register status: ${result.statusCode}`);
   console.log(result.output);
 
   if (result.statusCode !== 200) {

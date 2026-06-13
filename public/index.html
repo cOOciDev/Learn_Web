@@ -35,7 +35,9 @@
   <header id="top">
     <div class="container site-header">
       <a class="brand" href="#hero" aria-label="COOci Dev Academy">
-        <span class="brand-mark"><img src="./images/logo.svg" alt="" width="28" height="28" loading="lazy" /></span>
+        <span class="brand-mark"><span class="brand-badge-inner">
+          <img src="./images/logo.svg" alt="" width="28" height="28" loading="lazy" />
+        </span></span>
         <!-- <span class="brand-name" data-i18n="header.brand">COOci Dev Academy</span> -->
         <span class="brand-pill" data-i18n="header.tagline">مسیر مهارت و درآمد</span>
       </a>
@@ -47,9 +49,9 @@
         <a class="nav-link" href="#faq" data-i18n="header.faq">سوالات</a>
         <a class="nav-link" href="#contact" data-i18n="header.contact">ثبت نام</a>
       </nav>
-      <div class="header-actions" role="group" aria-label="Site controls">
-        <button id="langToggle" class="btn-ghost btn-compact" type="button" aria-live="polite" data-i18n="header.langToggle">EN / FA</button>
-        <button id="themeToggle" class="btn-ghost btn-compact" type="button" aria-label="Toggle theme" title="Toggle theme"><span id="themeIcon" aria-hidden="true">&#9728;</span></button>
+      <div class="header-actions header-actions-primary" role="group" aria-label="Site controls">
+        <button id="langToggle" class="btn-ghost btn-compact lang-toggle" type="button" aria-live="polite" data-i18n="header.langToggle">EN / FA</button>
+        <button id="themeToggle" class="btn-ghost btn-compact theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme"><span id="themeIcon" class="theme-icon" aria-hidden="true">&#9728;</span></button>
         <button id="menuBtn" class="btn-ghost btn-compact" type="button" aria-controls="mobileMenu" aria-expanded="false" aria-label="Open menu"><span aria-hidden="true">&#9776;</span></button>
       </div>
     </div>
@@ -63,6 +65,10 @@
           <a class="btn-ghost" href="#faq" data-i18n="header.faq">سوالات</a>
           <a class="btn-ghost" href="#contact" data-i18n="header.contact">ثبت نام</a>
         </nav>
+        <div class="mobileMenu-actions" role="group" aria-label="Mobile site controls">
+          <button id="mobileLangToggle" class="btn-ghost btn-compact lang-toggle" type="button" aria-live="polite">EN / FA</button>
+          <button id="mobileThemeToggle" class="btn-ghost btn-compact theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme"><span class="theme-icon" aria-hidden="true">&#9728;</span></button>
+        </div>
       </div>
     </div>
   </header>
@@ -195,7 +201,8 @@
   <footer id="footer">
     <div class="container footer-shell">
       <div class="footer-top">
-        <div class="brand-stack"><div class="brand"><span class="brand-mark" aria-hidden="true"><img src="./images/logo.svg" alt="" width="28" height="28" loading="lazy" /></span><span data-i18n="footer.brandShort">COOci Dev</span></div><p class="text-ink-2" data-i18n="footer.tagline">COOci Dev Academy مسیر یادگیری مهارت های دیجیتال را از پایه تا حرفه ای همراهی می کند.</p></div>
+        <!-- <span data-i18n="footer.brandShort">COOci Dev</span> -->
+        <div class="brand-stack"><div class="brand"><span class="brand-mark" aria-hidden="true"><span class="footer-brand-badge-inner"><img src="./images/logo.svg" alt="" width="28" height="28" loading="lazy" /></span></span></div><p class="text-ink-2" data-i18n="footer.tagline">COOci Dev Academy مسیر یادگیری مهارت های دیجیتال را از پایه تا حرفه ای همراهی می کند.</p></div>
         <div class="footer-links">
           <a class="btn-ghost" href="#why" data-i18n="footer.links.why">چرا کوکی؟</a>
           <a class="btn-ghost" href="#courses" data-i18n="footer.links.courses">دوره ها</a>

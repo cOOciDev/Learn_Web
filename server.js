@@ -1,9 +1,10 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const applyHandler = require('./api/apply');
+const registerHandler = require('./api/register');
 
-const PORT = Number(process.env.PORT || 8080);
+const START_PORT = Number(process.env.PORT || 8080);
+const MAX_PORT_ATTEMPTS = 20;
 const ROOT = __dirname;
 
 const loadEnv = () => {
@@ -64,13 +65,41 @@ const serveFile = (req, res) => {
 };
 
 const server = http.createServer((req, res) => {
-  if (req.url === '/api/apply' || req.url?.startsWith('/api/apply?')) {
-    applyHandler(req, res);
+  if (req.url === '/api/health' || req.url?.startsWith('/api/health?')) {
+    send(res, 200, JSON.stringify({ ok: true }), 'application/json; charset=utf-8');
+    return;
+  }
+  if (
+    req.url === '/api/register' ||
+    req.url?.startsWith('/api/register?') ||
+    req.url === '/api/apply' ||
+    req.url?.startsWith('/api/apply?')
+  ) {
+    registerHandler(req, res);
     return;
   }
   serveFile(req, res);
 });
 
-server.listen(PORT, () => {
-  console.log(`COOci Dev Academy local server: http://localhost:${PORT}/public/index.html`);
-});
+const listen = (port, attempts = 0) => {
+  server.removeAllListeners('error');
+  server.removeAllListeners('listening');
+
+  server.once('error', (error) => {
+    if (error.code === 'EADDRINUSE' && attempts < MAX_PORT_ATTEMPTS) {
+      const nextPort = port + 1;
+      console.warn(`Port ${port} is in use. Trying ${nextPort}...`);
+      listen(nextPort, attempts + 1);
+      return;
+    }
+    throw error;
+  });
+
+  server.once('listening', () => {
+    console.log(`COOci Dev Academy local server: http://localhost:${port}/public/index.html`);
+  });
+
+  server.listen(port);
+};
+
+listen(START_PORT);
