@@ -5,8 +5,11 @@ const nodemailer = require('nodemailer');
 // Never place these values in public frontend files or commit them to git.
 const TELEGRAM_API = 'https://api.telegram.org';
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const IRAN_PHONE = /^09\d{9}$/;
+const INTL_PHONE = /^[+0-9 ()-]{8,}$/;
 const MAX_FIELD = 120;
 const MAX_MESSAGE = 1000;
+const MAX_BODY_BYTES = 16 * 1024;
 const RATE_WINDOW_MS = 60 * 1000;
 const RATE_LIMIT = 8;
 const hits = new Map();
@@ -57,7 +60,17 @@ const applyCors = (req, res) => {
 
 const readBody = async (req) => {
   const chunks = [];
-  for await (const chunk of req) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+  let total = 0;
+  for await (const chunk of req) {
+    const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+    total += buffer.length;
+    if (total > MAX_BODY_BYTES) {
+      const error = new Error('body_too_large');
+      error.code = 'body_too_large';
+      throw error;
+    }
+    chunks.push(buffer);
+  }
   const raw = Buffer.concat(chunks).toString('utf8');
   return raw ? JSON.parse(raw) : {};
 };
@@ -116,6 +129,7 @@ const buildPayload = (body) => {
     level: cleanText(body.level),
     preferredContact: cleanText(body.preferredContact),
     message: cleanText(body.message, MAX_MESSAGE),
+    website: cleanText(body.website),
     source: cleanText(body.source || 'CoociDev Academy Landing'),
     submittedAt,
     submittedAtJalali: formatJalaliDateTime(submittedAt)
@@ -123,7 +137,10 @@ const buildPayload = (body) => {
 };
 
 const validatePayload = (payload) => {
+  if (payload.website) return 'spam_detected';
   if (payload.email && !EMAIL.test(payload.email)) return 'invalid_email';
+  if (!IRAN_PHONE.test(payload.phone) && !INTL_PHONE.test(payload.phone)) return 'invalid_phone';
+  if (payload.age && (Number(payload.age) < 6 || Number(payload.age) > 99)) return 'invalid_age';
   if (payload.fullName.length < 3 || !payload.phone || !payload.course) return 'missing_required_fields';
   return null;
 };
@@ -153,6 +170,7 @@ const sendTelegram = async (messageText) => {
 const sendGmail = async (payload, messageText) => {
   const gmailUser = process.env.GMAIL_USER;
   const gmailPass = process.env.GMAIL_APP_PASSWORD;
+  const to = process.env.ADMIN_NOTIFICATION_EMAIL || gmailUser;
   if (!gmailUser || !gmailPass) return { ok: false, error: 'gmail_not_configured' };
 
   try {
@@ -166,14 +184,15 @@ const sendGmail = async (payload, messageText) => {
 
     await transporter.sendMail({
       from: `COOci Dev Academy <${gmailUser}>`,
-      to: gmailUser,
+      to,
       replyTo: payload.email || undefined,
       subject: `درخواست ثبت نام جدید - ${payload.fullName}`,
       text: messageText
     });
 
     return { ok: true };
-  } catch {
+  } catch (error) {
+    console.error('[api/register] gmail send failed', error);
     return { ok: false, error: 'gmail_send_failed' };
   }
 };
@@ -204,8 +223,8 @@ module.exports = async function handler(req, res) {
   let body;
   try {
     body = await readBody(req);
-  } catch {
-    json(res, 400, { ok: false, error: 'invalid_json' });
+  } catch (error) {
+    json(res, error.code === 'body_too_large' ? 413 : 400, { ok: false, error: error.code || 'invalid_json' });
     return;
   }
 
@@ -224,7 +243,7 @@ module.exports = async function handler(req, res) {
   }
 
   const gmailResult = await sendGmail(payload, messageText);
-  if (!gmailResult.ok) {
+  if (!gmailResult.ok && gmailResult.error !== 'gmail_not_configured') {
     json(res, 502, { ok: false, error: gmailResult.error });
     return;
   }

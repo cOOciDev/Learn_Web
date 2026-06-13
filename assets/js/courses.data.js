@@ -4,7 +4,7 @@ export const COURSES = [
     difficulty: 'intermediate',
     icon: '3D',
     image: {
-      src: './images/courses/3d-modeling.svg',
+      src: './public/images/courses/3d-modeling.svg',
       alt: {
         fa: 'کاور دوره مدل سازی سه بعدی',
         en: '3D modeling course cover'
@@ -44,7 +44,7 @@ export const COURSES = [
     difficulty: 'intermediate',
     icon: 'G',
     image: {
-      src: './images/courses/game-environment.svg',
+      src: './public/images/courses/game-environment.svg',
       alt: {
         fa: 'کاور دوره طراحی محیط بازی',
         en: 'Game environment course cover'
@@ -84,7 +84,7 @@ export const COURSES = [
     difficulty: 'intermediate',
     icon: 'M',
     image: {
-      src: './images/courses/animation.svg',
+      src: './public/images/courses/animation.svg',
       alt: {
         fa: 'کاور دوره انیمیشن سازی',
         en: 'Animation course cover'
@@ -124,7 +124,7 @@ export const COURSES = [
     difficulty: 'beginner',
     icon: 'S',
     image: {
-      src: './images/courses/digital-kickstart.svg',
+      src: './public/images/courses/digital-kickstart.svg',
       alt: {
         fa: 'کاور دوره شروع سریع دنیای دیجیتال',
         en: 'Digital quick start course cover'
@@ -164,7 +164,7 @@ export const COURSES = [
     difficulty: 'beginner',
     icon: 'C',
     image: {
-      src: './images/courses/real-programming.svg',
+      src: './public/images/courses/real-programming.svg',
       alt: {
         fa: 'کاور دوره برنامه نویسی واقعی',
         en: 'Real programming course cover'
@@ -204,7 +204,7 @@ export const COURSES = [
     difficulty: 'intermediate',
     icon: 'W',
     image: {
-      src: './images/courses/professional-web.svg',
+      src: './public/images/courses/professional-web.svg',
       alt: {
         fa: 'کاور دوره طراحی سایت حرفه ای',
         en: 'Professional website design course cover'
@@ -244,7 +244,7 @@ export const COURSES = [
     difficulty: 'advanced',
     icon: 'FS',
     image: {
-      src: './images/courses/full-stack.svg',
+      src: './public/images/courses/full-stack.svg',
       alt: {
         fa: 'کاور دوره توسعه دهنده فول استک',
         en: 'Full-stack course cover'
@@ -284,7 +284,7 @@ export const COURSES = [
     difficulty: 'advanced',
     icon: '3W',
     image: {
-      src: './images/courses/3d-website.svg',
+      src: './public/images/courses/3d-website.svg',
       alt: {
         fa: 'کاور دوره طراحی سایت سه بعدی',
         en: '3D website design course cover'
@@ -324,7 +324,7 @@ export const COURSES = [
     difficulty: 'advanced',
     icon: 'P',
     image: {
-      src: './images/courses/startup-product.svg',
+      src: './public/images/courses/startup-product.svg',
       alt: {
         fa: 'کاور دوره ساخت محصول و استارتاپ',
         en: 'Product and startup course cover'
@@ -364,7 +364,7 @@ export const COURSES = [
     difficulty: 'advanced',
     icon: 'CL',
     image: {
-      src: './images/courses/cooci-system.svg',
+      src: './public/images/courses/cooci-system.svg',
       alt: {
         fa: 'کاور دوره سیستم سازی',
         en: 'Systems design course cover'
@@ -404,7 +404,7 @@ export const COURSES = [
     difficulty: 'advanced',
     icon: 'U',
     image: {
-      src: './images/courses/unity-game-dev.svg',
+      src: './public/images/courses/unity-game-dev.svg',
       alt: {
         fa: 'کاور دوره بازی سازی با یونیتی',
         en: 'Unity game development course cover'

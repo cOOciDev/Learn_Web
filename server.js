@@ -46,7 +46,14 @@ const send = (res, status, body, type = 'text/plain; charset=utf-8') => {
 
 const serveFile = (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host}`);
-  const pathname = decodeURIComponent(url.pathname === '/' ? '/public/index.html' : url.pathname);
+  const requestedPath = url.pathname === '/' ? '/index.html' : url.pathname;
+  if (requestedPath === '/public/index.html') {
+    res.writeHead(301, { Location: '/' });
+    res.end();
+    return;
+  }
+
+  const pathname = decodeURIComponent(requestedPath);
   const filePath = path.resolve(ROOT, `.${pathname}`);
 
   if (!filePath.startsWith(ROOT)) {
@@ -96,7 +103,7 @@ const listen = (port, attempts = 0) => {
   });
 
   server.once('listening', () => {
-    console.log(`COOci Dev Academy local server: http://localhost:${port}/public/index.html`);
+    console.log(`COOci Dev Academy local server: http://localhost:${port}/`);
   });
 
   server.listen(port);

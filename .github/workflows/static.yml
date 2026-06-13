@@ -33,11 +33,17 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Prepare static artifact
+        run: |
+          mkdir site-dist
+          cp index.html site-dist/
+          cp -R assets site-dist/assets
+          cp -R public site-dist/public
+          touch site-dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: 'site-dist'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

@@ -1,32 +1,46 @@
-# COOci Dev Academy Signup System
+# COOci Dev Academy
 
-Static GitHub Pages frontend plus secure serverless API for receiving course signup/contact messages and forwarding them to Telegram and Gmail.
+Static GitHub Pages frontend with a separate secure backend API for course signup/contact messages.
 
-## Structure
+## Architecture
 
-```text
-public/index.html          Static landing page for GitHub Pages
-assets/                    Public CSS, JS, i18n, and course data
-api/register.js            Vercel serverless signup endpoint
-api/apply.js               Backward-compatible alias to register.js
-api/health.js              Small health endpoint
-server.js                  Local static/API dev server
-.env.example               Placeholder environment variables only
-```
+- `index.html` is the only frontend entry point for GitHub Pages.
+- `assets/` contains public CSS, JavaScript, i18n JSON, and course data.
+- `public/` contains public images, icons, fonts, and the 3D model.
+- `api/register.js`, `api/apply.js`, and `api/health.js` are backend/serverless files for Vercel or a small Node host.
+- `server.js` is only for local development.
+
+GitHub Pages cannot run Node.js, Nodemailer, or Telegram Bot API secrets. The frontend must call a deployed backend URL.
 
 ## Security Rules
 
-Never commit real secrets. Keep these values only in local `.env` or the backend host environment variables:
+Never commit real values for:
 
 ```text
 TELEGRAM_BOT_TOKEN
 TELEGRAM_CHAT_ID
 GMAIL_USER
 GMAIL_APP_PASSWORD
-ALLOWED_ORIGIN
+ADMIN_NOTIFICATION_EMAIL
 ```
 
-`.gitignore` excludes `.env`, `.env.local`, `node_modules`, logs, and common secret files.
+Keep secrets only in local `.env` or backend host environment variables. `.env`, `.env.local`, `node_modules`, logs, and common key/secret files are ignored by git.
+
+If secrets were committed before, rotate them immediately:
+
+1. Revoke the Telegram bot token with BotFather and create a new token.
+2. Generate a new Google App Password and delete the old one.
+3. Change private chat IDs or destination groups if needed.
+4. Remove secrets from git tracking and commit the cleanup.
+
+Cleanup commands:
+
+```powershell
+git rm -r --cached node_modules
+git rm --cached .env
+git add .gitignore .env.example
+git commit -m "Secure repo: remove secrets and node_modules"
+```
 
 ## Local Development
 
@@ -36,19 +50,20 @@ Install dependencies:
 npm install
 ```
 
-Create local environment variables:
+Create local secrets:
 
 ```powershell
 copy .env.example .env
 ```
 
-Edit `.env`:
+Edit `.env` with private values:
 
 ```text
 TELEGRAM_BOT_TOKEN=your_private_bot_token
 TELEGRAM_CHAT_ID=your_private_chat_id
-GMAIL_USER=cooci.ebrahimi@gmail.com
+GMAIL_USER=your_gmail_address
 GMAIL_APP_PASSWORD=your_google_app_password
+ADMIN_NOTIFICATION_EMAIL=admin_destination_email
 ALLOWED_ORIGIN=http://localhost:8080
 ```
 
@@ -61,49 +76,68 @@ npm run dev
 Open:
 
 ```text
-http://localhost:8080/public/index.html
+http://localhost:8080/
+```
+
+If port `8080` is already in use, the local server automatically tries the next ports.
+
+Run syntax checks:
+
+```powershell
+npm run check
 ```
 
 ## Frontend Deployment: GitHub Pages
 
-Publish the static files from this repository to GitHub Pages. The frontend contains no Telegram token, Gmail password, chat ID, or private API secret.
+The workflow at `.github/workflows/static.yml` deploys only:
 
-If your Vercel API is on a different domain, set the public API URL before `assets/js/app.js` in `public/index.html`:
-
-```html
-<script>
-  window.COOci_API_ENDPOINT = 'https://your-vercel-project.vercel.app/api/register';
-</script>
+```text
+index.html
+assets/
+public/
+.nojekyll
 ```
 
-If the API is served from the same origin in local dev, no config is needed.
+Expected production URL:
 
-## Backend Deployment: Vercel
+```text
+https://coocidev.github.io/Learn_Web/
+```
 
-Deploy the repository to Vercel and set these Project Settings -> Environment Variables:
+Configure the public backend endpoint in `index.html`:
+
+```html
+<meta name="cooci-api-endpoint" content="https://your-backend.example.com/api/register" />
+```
+
+This URL is public and is not a secret. Do not put Telegram tokens, Gmail passwords, or chat IDs in frontend files.
+
+## Backend Deployment
+
+The current backend is compatible with Vercel Functions or a small Node host such as Railway/Render. Set these environment variables in the backend host:
 
 ```text
 TELEGRAM_BOT_TOKEN=your_private_bot_token
 TELEGRAM_CHAT_ID=your_private_chat_id
-GMAIL_USER=cooci.ebrahimi@gmail.com
+GMAIL_USER=your_gmail_address
 GMAIL_APP_PASSWORD=your_google_app_password
+ADMIN_NOTIFICATION_EMAIL=admin_destination_email
 ALLOWED_ORIGIN=https://coocidev.github.io
 ```
-
-Use a Google App Password for `GMAIL_APP_PASSWORD`, not the normal Gmail password.
 
 Endpoints:
 
 ```text
-POST /api/register
 GET  /api/health
+POST /api/register
+POST /api/apply
 ```
 
-The API validates and sanitizes the form fields, rate-limits requests, formats one Persian message, sends it to Telegram, and sends the same message to Gmail through Nodemailer.
+The API validates and sanitizes request fields, rate-limits by IP in-memory, rejects honeypot spam, sends a formatted Telegram message, and optionally sends a Gmail notification.
 
 ## Telegram Helpers
 
-If you do not know the Telegram chat ID, send `/start` to your bot from the receiving Telegram account, then run:
+If you do not know the Telegram chat ID, send `/start` to the bot from the receiving Telegram account, then run:
 
 ```powershell
 npm run list:telegram
@@ -117,10 +151,20 @@ npm run check:telegram
 
 ## Media
 
-Course covers live in `public/images/courses/`. The intro video block expects:
+Course covers live in:
+
+```text
+public/images/courses/
+```
+
+The intro video block expects:
 
 ```text
 public/videos/academy-intro.mp4
 ```
 
-The page already has a poster at `public/images/video-poster.svg`; add the MP4 file with the same path when the final intro video is ready.
+The poster already exists at:
+
+```text
+public/images/video-poster.svg
+```

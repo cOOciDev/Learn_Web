@@ -1,7 +1,11 @@
 const IRAN_PHONE = /^09\d{9}$/;
 const INTL_PHONE = /^[+0-9 ()-]{8,}$/;
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const API_ENDPOINT = window.COOci_API_ENDPOINT || '/api/register';
+
+const resolveApiEndpoint = () => {
+  const configured = window.COOci_API_ENDPOINT || document.querySelector('meta[name="cooci-api-endpoint"]')?.content;
+  return String(configured || '').trim() || '/api/register';
+};
 
 const cleanText = (value, max = 200) => {
   return String(value ?? '')
@@ -94,6 +98,7 @@ const buildPayload = (data) => ({
   level: data.level,
   preferredContact: data.preferredContact,
   message: data.message,
+  website: data.website,
   source: 'CoociDev Academy Landing',
   submittedAt: new Date().toISOString()
 });
@@ -117,7 +122,7 @@ export function initFormTelegram() {
 
     toggleSubmitting(form, true);
     try {
-      const res = await fetch(API_ENDPOINT, {
+      const res = await fetch(resolveApiEndpoint(), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)

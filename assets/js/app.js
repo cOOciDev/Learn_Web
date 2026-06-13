@@ -330,7 +330,7 @@ const initAnchorScroll = () => {
 
 const loadTranslations = async (lang) => {
   if (translationsCache.has(lang)) return translationsCache.get(lang);
-  const res = await fetch(`../assets/i18n/${lang}.json`, { cache: 'no-store' });
+  const res = await fetch(new URL(`../i18n/${lang}.json`, import.meta.url), { cache: 'no-store' });
   if (!res.ok) throw new Error(`Failed to load translations for ${lang}`);
   const data = await res.json();
   translationsCache.set(lang, data);
