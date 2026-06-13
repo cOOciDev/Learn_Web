@@ -171,9 +171,12 @@
       "body": "Open the email first. If your email app does not open, copy the destination and prepared message.",
       "emailLabel": "Destination email",
       "messageLabel": "Prepared message",
+      "phoneLabel": "Alternative contact",
       "openMail": "Open email app",
       "copyEmail": "Copy email",
-      "copyMessage": "Copy prepared message"
+      "copyMessage": "Copy prepared message",
+      "call": "Call",
+      "sms": "Message"
     }
   },
   "faq": {

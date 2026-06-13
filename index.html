@@ -193,9 +193,9 @@
         <p id="ok" class="form-status" role="status" data-i18n="contact.ok">پیش نویس ایمیل آماده شد. لطفا آن را بررسی کنید و Send را بزنید.</p>
         <p id="fail" class="form-status" role="status" data-i18n="contact.fail">اگر برنامه ایمیل باز نشد، از گزینه های کپی استفاده کنید.</p>
       </form>
-      <div id="mailFallbackModal" class="mail-modal hidden" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="mailFallbackTitle">
-        <div class="mail-modal-panel glass">
-          <button class="mail-modal-close" type="button" aria-label="Close" data-close-mail-modal>&times;</button>
+      <div id="mailDraftPanel" class="mail-draft-panel hidden" role="region" aria-hidden="true" aria-labelledby="mailFallbackTitle">
+        <div class="mail-draft-content glass">
+          <button class="mail-draft-close" type="button" aria-label="Close" data-close-mail-modal>&times;</button>
           <div class="stack">
             <p class="eyebrow" data-i18n="contact.fallback.eyebrow">پیش نویس ایمیل</p>
             <h3 id="mailFallbackTitle" data-i18n="contact.fallback.title">ایمیل شما آماده است</h3>
@@ -210,7 +210,15 @@
               <span data-i18n="contact.fallback.messageLabel">متن آماده</span>
               <textarea id="fallbackMessage" rows="9" readonly></textarea>
             </div>
-            <div class="mail-modal-actions">
+            <div class="fallback-copy-box contact-fallback-box">
+              <span data-i18n="contact.fallback.phoneLabel">راه ارتباطی جایگزین</span>
+              <strong dir="ltr">09026561466</strong>
+              <div class="contact-fallback-actions">
+                <a class="btn-ghost btn-compact" href="tel:09026561466" data-i18n="contact.fallback.call">تماس</a>
+                <a class="btn-ghost btn-compact" href="sms:09026561466" data-i18n="contact.fallback.sms">پیامک</a>
+              </div>
+            </div>
+            <div class="mail-draft-actions">
               <button class="btn" type="button" data-open-mail data-i18n="contact.fallback.openMail">باز کردن ایمیل</button>
               <button class="btn-ghost btn-compact" type="button" data-copy-email data-i18n="contact.fallback.copyEmail">کپی ایمیل</button>
               <button class="btn-ghost btn-compact" type="button" data-copy-message data-i18n="contact.fallback.copyMessage">کپی متن آماده</button>
@@ -243,8 +251,11 @@
           <a class="btn-ghost" href="#benefits" data-i18n="footer.links.benefits">مزایا</a>
           <a class="btn-ghost" href="#contact" data-i18n="footer.links.contact">ثبت نام</a>
           <!-- <a class="btn-ghost" href="https://coocidev.com" target="_blank" rel="noopener" data-i18n="footer.links.website">coocidev.com</a> -->
-          <a class="btn-ghost" href="https://www.instagram.com/coocidev/" target="_blank" rel="noopener" ><img src="./public/icons/instagram.svg" alt="" width="22" height="22" loading="lazy" /> @coocidev</a>
-          <a class="btn-ghost" href="https://t.me/coocidev" target="_blank" rel="noopener"><img src="./public/icons/telegram.svg" alt="" width="22" height="22" loading="lazy" /> @coocidev</a>
+          <div>
+            <a class="btn-ghost" href="https://www.instagram.com/coocidev/" target="_blank" rel="noopener" ><img src="./public/icons/instagram.svg" alt="" width="22" height="22" loading="lazy" /></a>
+            <a class="btn-ghost" href="https://t.me/coocidev" target="_blank" rel="noopener"><img src="./public/icons/telegram.svg" alt="" width="22" height="22" loading="lazy" /></a>
+            <a class="btn-ghost" href="tel:+989026561466"><img src="./public/icons/phone.svg" alt="" width="22" height="22" loading="lazy" />902-656-1466</a>
+          </div>  
         </div>
         <!-- <div class="footer-meta stack"><strong >@coocidev</strong><div class="footer-social"><a href="https://www.instagram.com/coocidev/" target="_blank" rel="noopener" aria-label="Instagram"><img src="./public/icons/instagram.svg" alt="" width="22" height="22" loading="lazy" /></a></div></div> -->
       </div>

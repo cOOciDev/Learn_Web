@@ -178,27 +178,29 @@ const buildMailto = ({ to, subject, body }) => {
 };
 
 const updateModal = ({ to, subject, body }) => {
-  const modal = document.getElementById('mailFallbackModal');
+  const modal = document.getElementById('mailDraftPanel');
   if (!modal) return;
   const mailto = buildMailto({ to, subject, body });
   modal.dataset.email = to;
   modal.dataset.mailto = mailto;
   modal.dataset.message = `To: ${to}\nSubject: ${subject}\n\n${body}`;
   document.getElementById('fallbackEmail').textContent = to;
-  document.getElementById('fallbackMessage').value = modal.dataset.message;
+  const messageEl = document.getElementById('fallbackMessage');
+  messageEl.value = modal.dataset.message;
+  messageEl.style.height = 'auto';
+  messageEl.style.height = `${messageEl.scrollHeight}px`;
 };
 
 const showModal = () => {
-  const modal = document.getElementById('mailFallbackModal');
+  const modal = document.getElementById('mailDraftPanel');
   if (!modal) return;
   modal.classList.remove('hidden');
   modal.setAttribute('aria-hidden', 'false');
-  modal.scrollTop = 0;
   modal.querySelector('[data-open-mail]')?.focus({ preventScroll: true });
 };
 
 const hideModal = () => {
-  const modal = document.getElementById('mailFallbackModal');
+  const modal = document.getElementById('mailDraftPanel');
   if (!modal) return;
   modal.classList.add('hidden');
   modal.setAttribute('aria-hidden', 'true');
@@ -224,12 +226,12 @@ const copyText = async (value) => {
 };
 
 const initModalControls = () => {
-  const modal = document.getElementById('mailFallbackModal');
+  const modal = document.getElementById('mailDraftPanel');
   if (!modal || modal.dataset.ready === '1') return;
   modal.dataset.ready = '1';
 
   modal.addEventListener('click', (event) => {
-    if (event.target === modal || event.target.closest('[data-close-mail-modal]')) hideModal();
+    if (event.target.closest('[data-close-mail-modal]')) hideModal();
   });
 
   modal.querySelector('[data-open-mail]')?.addEventListener('click', () => {

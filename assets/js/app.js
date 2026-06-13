@@ -34,6 +34,7 @@ const getThemeIcons = () => Array.from(document.querySelectorAll('.theme-icon'))
 
 const ensureRevealObserver = () => {
   if (revealObserver) return revealObserver;
+  if (!('IntersectionObserver' in window)) return null;
   revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
@@ -45,10 +46,27 @@ const ensureRevealObserver = () => {
   return revealObserver;
 };
 
+const isNearViewport = (element) => {
+  const rect = element.getBoundingClientRect();
+  const viewport = window.innerHeight || document.documentElement.clientHeight || 0;
+  return rect.top < viewport * 1.25 && rect.bottom > -viewport * 0.25;
+};
+
 const registerRevealElement = (element) => {
   if (!element) return;
   element.classList.remove('is-visible');
-  ensureRevealObserver().observe(element);
+  const observer = ensureRevealObserver();
+  if (!observer) {
+    element.classList.add('is-visible');
+    return;
+  }
+  observer.observe(element);
+  requestAnimationFrame(() => {
+    if (isNearViewport(element)) {
+      element.classList.add('is-visible');
+      observer.unobserve(element);
+    }
+  });
 };
 
 const initRevealAnimations = () => {

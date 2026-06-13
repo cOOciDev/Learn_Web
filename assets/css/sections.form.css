@@ -129,67 +129,63 @@
     animation: form-spin 0.75s linear infinite;
   }
 
-  .mail-modal {
+  .mail-draft-panel {
     --mail-modal-bg: var(--bg-page);
     --mail-modal-panel-bg: var(--bg-gradient), var(--bg-page);
     --mail-modal-box-bg: var(--surface-1);
     --mail-modal-action-bg: rgba(8, 12, 32, 0.94);
     --mail-modal-textarea-bg: rgba(8, 12, 32, 0.78);
 
-    position: fixed;
-    inset: 0;
-    z-index: 200;
     display: block;
-    padding: 0;
-    background: var(--mail-modal-bg);
-    overflow: hidden;
-    overscroll-behavior: contain;
+    margin-top: clamp(18px, 4vw, 28px);
   }
 
-  .mail-modal.hidden {
+  .mail-draft-panel.hidden {
     display: none;
   }
 
-  .mail-modal-panel {
+  .mail-draft-content {
     position: relative;
     width: 100%;
-    height: 100dvh;
-    min-height: 100vh;
     margin: 0;
-    padding: clamp(18px, 4vw, 38px);
-    border-radius: 0;
-    border: 0;
-    background: var(--mail-modal-panel-bg);
+    padding: clamp(20px, 4vw, 34px);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    background: var(--mail-modal-box-bg);
     color: var(--ink-1);
-    box-shadow: none;
-    overflow-y: auto;
-    overscroll-behavior: contain;
-    -webkit-overflow-scrolling: touch;
+    box-shadow: var(--shadow-sm);
+    overflow: visible;
     animation: modal-pop 0.22s ease-out;
   }
 
-  .mail-modal-panel > .stack,
-  .mail-modal-panel > .fallback-copy-grid {
-    width: min(920px, 100%);
+  .mail-draft-content > .stack,
+  .mail-draft-content > .fallback-copy-grid {
+    width: 100%;
     margin-inline: auto;
   }
 
-  .mail-modal-panel h3 {
+  .mail-draft-content > .stack {
+    gap: 10px;
+    padding-inline-end: 64px;
+    margin-block-end: 22px;
+  }
+
+  .mail-draft-content h3 {
     color: var(--ink-1);
   }
 
-  .mail-modal-panel p,
-  .mail-modal-panel .section-sub {
+  .mail-draft-content p,
+  .mail-draft-content .section-sub {
     color: var(--ink-2);
   }
 
-  .mail-modal-close {
-    position: fixed;
-    inset-block-start: calc(14px + var(--safe-top));
-    inset-inline-end: 14px;
+  .mail-draft-close {
+    position: absolute;
+    inset-block-start: 16px;
+    inset-inline-end: 16px;
     z-index: 1;
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     border: 1px solid rgba(96, 126, 255, 0.32);
     background: rgba(96, 126, 255, 0.14);
@@ -200,14 +196,20 @@
 
   .fallback-copy-grid {
     display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
     margin-top: 20px;
+  }
+
+  .fallback-copy-box.full,
+  .mail-draft-actions {
+    grid-column: 1 / -1;
   }
 
   .fallback-copy-box {
     display: grid;
     gap: 10px;
-    padding: 14px;
+    padding: clamp(14px, 2vw, 18px);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius-sm);
     background: var(--mail-modal-box-bg);
@@ -227,9 +229,9 @@
   }
 
   .fallback-copy-box textarea {
-    min-height: clamp(220px, 36vh, 380px);
-    max-height: 48vh;
+    min-height: 220px;
     resize: vertical;
+    overflow: hidden;
     white-space: pre-wrap;
     border: 1px solid var(--surface-border);
     border-radius: var(--radius-sm);
@@ -238,18 +240,38 @@
     line-height: 1.65;
   }
 
-  .mail-modal-actions {
-    position: sticky;
-    bottom: -1px;
+  .contact-fallback-box {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .contact-fallback-box span {
+    grid-column: 1 / -1;
+  }
+
+  .contact-fallback-actions {
+    display: inline-grid;
+    grid-template-columns: repeat(2, minmax(96px, 1fr));
+    gap: 10px;
+  }
+
+  .contact-fallback-actions .btn-ghost {
+    min-height: 42px;
+    padding-inline: 1em;
+  }
+
+  .mail-draft-actions {
+    position: static;
     display: grid;
     grid-template-columns: minmax(0, 1.35fr) repeat(2, minmax(0, 1fr));
     gap: 10px;
-    padding-top: 12px;
-    background: linear-gradient(180deg, transparent, var(--mail-modal-action-bg) 22%);
+    margin-top: 4px;
+    padding-block: 10px 0;
+    background: transparent;
   }
 
-  .mail-modal-actions .btn,
-  .mail-modal-actions .btn-ghost {
+  .mail-draft-actions .btn,
+  .mail-draft-actions .btn-ghost {
     width: 100%;
     min-height: 44px;
     padding-inline: 1em;
@@ -310,18 +332,29 @@
       width: 100%;
     }
 
-    .mail-modal {
-      padding: 0;
+    .mail-draft-content {
+      padding: 20px 14px;
     }
 
-    .mail-modal-panel {
-      padding-block: 22px;
+    .mail-draft-content > .stack {
+      padding-inline-end: 48px;
     }
 
-    .mail-modal-actions {
+    .fallback-copy-grid {
       grid-template-columns: 1fr;
-      position: static;
-      background: transparent;
+    }
+
+    .mail-draft-actions {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-fallback-box {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-fallback-actions {
+      grid-template-columns: 1fr 1fr;
+      width: 100%;
     }
   }
 }
